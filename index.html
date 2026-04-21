@@ -220,6 +220,24 @@ color: #aaa;
 flex-shrink: 0;
 }
 
+/* ── MAIN IMAGE ── */
+.main-image {
+border-top: 1px solid #111;
+border-bottom: 1px solid #111;
+}
+
+.main-image img {
+width: 100%;
+max-height: 90vh;
+object-fit: cover;
+object-position: center;
+display: block;
+}
+
+@media (max-width: 800px) {
+.main-image img { max-height: 70vh; }
+}
+
 /* ── PRESS SECTION ── */
 .press {
 border-bottom: 1px solid #111;
@@ -409,6 +427,12 @@ footer { padding: 18px 20px; flex-direction: column; gap: 12px; align-items: fle
   </div>
 
 </div>
+
+<!-- MAIN IMAGE -->
+<div class="main-image">
+  <img src="images/IMG_2186.PNG" alt="arm's lengths distances and other parallel realities, 2019 — Maansi Jain">
+</div>
+<div class="photo-caption" style="padding: 12px 40px; font-size: 11px; letter-spacing: 0.08em; color: #aaa; border-bottom: 1px solid #111;"><em>arm's lengths distances and other parallel realities</em>, 2019</div>
 
 <!-- PRESS -->
 <div class="press">
