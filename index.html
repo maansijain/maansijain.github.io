@@ -227,7 +227,7 @@ flex-shrink: 0;
 border-top: 1px solid #111;
 border-bottom: 1px solid #111;
 overflow: hidden;
-height: 80vh;
+height: 50vh;
 cursor: grab;
 position: relative;
 user-select: none;
@@ -463,7 +463,7 @@ footer { padding: 18px 20px; flex-direction: column; gap: 12px; align-items: fle
   const img = document.getElementById('viewerImg');
 
   let scale = 1.6; // start zoomed in
-  const minScale = 0.5; // how far out they can zoom
+  const minScale = 0.1; // can zoom out to 1/10th
   const maxScale = 4;
   let translateX = 0;
   let translateY = 0;
@@ -509,8 +509,9 @@ footer { padding: 18px 20px; flex-direction: column; gap: 12px; align-items: fle
   img.addEventListener('load', initImage);
   if (img.complete) initImage();
 
-  // scroll to zoom
+  // scroll to zoom — only when ctrl or cmd held, otherwise let page scroll
   viewer.addEventListener('wheel', function(e) {
+    if (!e.ctrlKey && !e.metaKey) return; // let normal scroll through
     e.preventDefault();
     const delta = e.deltaY > 0 ? -0.08 : 0.08;
     scale = Math.min(maxScale, Math.max(minScale, scale + delta * scale));
@@ -544,7 +545,7 @@ footer { padding: 18px 20px; flex-direction: column; gap: 12px; align-items: fle
 <!-- PRESS -->
 <div class="press">
   <div class="press-header">
-    <div class="press-title">Press 📰</div>
+    <div class="press-title">Press</div>
     <a class="press-more" href="https://linktr.ee/slurrrrrrp" target="_blank" rel="noopener">More &rarr;</a>
   </div>
   <div class="press-list">
