@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CV — Maansi Jain</title>
+<meta name="description" content="CV of Maansi Jain, conceptual artist based in Berlin, Delhi, NYC and Paris.">
+<link rel="canonical" href="https://maansijain.com/cv">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: #fff;
+  color: #111;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ── TOPBAR ── */
+.topbar {
+  border-bottom: 1px solid #111;
+  padding: 0 40px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.topbar-name {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.topbar-name a:hover { color: #e8321a; }
+
+.topbar-right {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #666;
+}
+
+/* ── CV HEADER ── */
+.cv-header {
+  border-bottom: 1px solid #111;
+  padding: 80px 40px 70px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.cv-headline {
+  font-size: clamp(52px, 9vw, 110px);
+  font-weight: 700;
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+.cv-headline span { color: #e8321a; }
+
+.cv-header-sub {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #888;
+  text-align: right;
+  line-height: 2;
+  flex-shrink: 0;
+}
+
+/* ── BIO SECTION ── */
+.bio-section {
+  border-bottom: 1px solid #111;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.bio-image {
+  border-right: 1px solid #111;
+  overflow: hidden;
+}
+
+.bio-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  min-height: 400px;
+}
+
+.bio-image-placeholder {
+  width: 100%;
+  min-height: 400px;
+  height: 100%;
+  background: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: #aaa;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.bio-image-placeholder .placeholder-icon {
+  font-size: 32px;
+  opacity: 0.3;
+}
+
+.bio-text {
+  padding: 48px 40px 52px;
+}
+
+.bio-text p {
+  font-size: 13px;
+  line-height: 1.9;
+  color: #333;
+  margin-bottom: 18px;
+  max-width: 520px;
+}
+
+.bio-text p:last-child { margin-bottom: 0; }
+
+/* ── CV BODY ── */
+.cv-body {
+  padding: 0 40px;
+}
+
+.cv-section {
+  border-bottom: 1px solid #111;
+  padding: 48px 0 52px;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 40px;
+}
+
+.cv-section-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #aaa;
+  padding-top: 3px;
+  flex-shrink: 0;
+}
+
+.cv-section-content { }
+
+.cv-section-content p,
+.cv-section-content li {
+  font-size: 13px;
+  line-height: 1.85;
+  color: #333;
+  margin-bottom: 6px;
+}
+
+.cv-section-content p:last-child { margin-bottom: 0; }
+
+.cv-section-content a {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 1px;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.cv-section-content a:hover { color: #e8321a; border-color: #e8321a; }
+
+/* year groupings */
+.cv-year {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 0 16px;
+  margin-bottom: 4px;
+  align-items: baseline;
+}
+
+.cv-year-num {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #aaa;
+  padding-top: 2px;
+}
+
+.cv-year-entries { }
+
+.cv-year-entry {
+  font-size: 13px;
+  line-height: 1.85;
+  color: #333;
+  margin-bottom: 2px;
+  padding-left: 0;
+}
+
+.cv-year-entry em {
+  font-style: normal;
+  color: #888;
+}
+
+/* honors / education — plain paragraphs */
+.cv-plain {
+  font-size: 13px;
+  line-height: 1.85;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* ── PHOTO OF ARTIST ── */
+.artist-photo {
+  border-bottom: 1px solid #111;
+}
+
+.artist-photo img {
+  width: 100%;
+  max-height: 600px;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+.artist-photo-placeholder {
+  width: 100%;
+  height: 480px;
+  background: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: #aaa;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.artist-photo-placeholder .placeholder-icon {
+  font-size: 32px;
+  opacity: 0.3;
+}
+
+.photo-caption {
+  padding: 12px 40px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: #aaa;
+  border-bottom: 1px solid #111;
+}
+
+/* ── FOOTER ── */
+footer {
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-left {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #aaa;
+}
+
+.footer-links {
+  display: flex;
+  gap: 28px;
+}
+
+.footer-links a {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #aaa;
+  transition: color 0.15s;
+}
+
+.footer-links a:hover { color: #111; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 800px) {
+  .topbar { padding: 0 20px; }
+  .cv-header { padding: 50px 20px 44px; flex-direction: column; gap: 24px; }
+  .cv-header-sub { text-align: left; }
+  .bio-section { grid-template-columns: 1fr; }
+  .bio-image { border-right: none; border-bottom: 1px solid #111; }
+  .bio-image img, .bio-image-placeholder { min-height: 280px; }
+  .bio-text { padding: 36px 20px; }
+  .cv-body { padding: 0 20px; }
+  .cv-section { grid-template-columns: 1fr; gap: 16px; padding: 36px 0; }
+  .photo-caption { padding: 12px 20px; }
+  footer { padding: 18px 20px; flex-direction: column; gap: 12px; align-items: flex-start; }
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span class="topbar-name"><a href="/">Maansi Jain</a></span>
+  <span class="topbar-right">CV</span>
+</div>
+
+<!-- HEADER -->
+<div class="cv-header">
+  <div class="cv-headline">Maansi<br><span>Jain</span></div>
+  <div class="cv-header-sub">
+    b. 1992, Munich<br>
+    Berlin / Delhi / NYC / Paris<br>
+    they / it / she / he
+  </div>
+</div>
+
+<!-- BIO + WORK IMAGE -->
+<div class="bio-section">
+
+  <div class="bio-image">
+    <!-- REPLACE src WITH YOUR GITHUB IMAGE PATH e.g. src="images/work.jpg" -->
+    <div class="bio-image-placeholder">
+      <span class="placeholder-icon">🖼</span>
+      <span>Replace with your work image</span>
+      <span style="font-size:10px; color:#ccc;">src="images/work.jpg"</span>
+    </div>
+    <!-- UNCOMMENT BELOW AND DELETE PLACEHOLDER DIV ABOVE ONCE IMAGE IS ADDED:
+    <img src="images/work.jpg" alt="Work by Maansi Jain">
+    -->
+  </div>
+
+  <div class="bio-text">
+    <p>maansi jain (b. 1992 munich, germany) is an artist living and working between Berlin, Paris, NYC and New Delhi.</p>
+    <p>Their practice engages photography as a material surface, transforming analog images into sculptural forms that interrogate memory, and collective notions of reality: indulging light as both a wave and a particle and a phenomenon beyond the ephemeral. Through processes of warping and reconfiguring light-sensitive media, they expand the photograph's purview from documentation and into myth.</p>
+    <p>Alongside their sculptural positions, jain maintains an embodied works-on-paper practice, exploring temporal mapping, abstraction and surrealist figurations as systems to explore the limits of consciousness in encountered atomic matter. Their durational performances draw on feminist and South Asian modernist histories, reactivating figures such as Amrita Sher-Gil and Kamala Das through scent landscape making, photographic documentation, painting, drawing and text.</p>
+    <p>jain studied photography at the Sorbonne and semiotics at New York University in Paris, Berlin, and NYC, game theory at University of Pennsylvania, and a Survey of Modern Mathematics at Columbia University. Most recently, jain's work has been presented at Contemporary Fine Arts (Berlin/Basel), Serendipity Arts Festival in collaboration with Raqs Media Collective (Goa), and India Art Fair in partnership with Gallery Ske (Delhi), among others. jain's work is held in private collections across Europe, India, and North America.</p>
+  </div>
+
+</div>
+
+<!-- CV SECTIONS -->
+<div class="cv-body">
+
+  <!-- EDUCATION -->
+  <div class="cv-section">
+    <div class="cv-section-label">Education</div>
+    <div class="cv-section-content">
+      <p class="cv-plain">New York University (2009–2013) | NYU Paris (2011) | NYU Berlin (2012)<br>
+      Bachelor of Science in Media, Culture, and Communication | French &amp; Studio Art | Dean's List</p>
+      <p class="cv-plain">Fashion Institute of Technology: Sewing and Patternmaking (2013)</p>
+      <p class="cv-plain">Sorbonne: Photography (2011)</p>
+      <p class="cv-plain">UPENN: Game Theory (2008)</p>
+      <p class="cv-plain">Columbia University: A Survey of Modern Mathematics (2007)</p>
+      <p class="cv-plain">Knickerbocker Furniture: Carpentry Apprenticeship (2018)</p>
+    </div>
+  </div>
+
+  <!-- HONORS -->
+  <div class="cv-section">
+    <div class="cv-section-label">Honors</div>
+    <div class="cv-section-content">
+      <p class="cv-plain">Undergraduate Awards: Shortlisted in Visual Arts (2013)</p>
+      <p class="cv-plain">Graduated NYU Cum Laude, NY — Founders' Day Award (2013)</p>
+      <p class="cv-plain">Steinhardt Dean's List (2010–2013)</p>
+      <p class="cv-plain">College of Arts and Sciences Presidential Scholar (2009–2010)</p>
+    </div>
+  </div>
+
+  <!-- SELECTED PUBLICATIONS -->
+  <div class="cv-section">
+    <div class="cv-section-label">Selected Publications</div>
+    <div class="cv-section-content">
+      <p class="cv-plain"><a href="https://linktr.ee/slurrrrrrp" target="_blank" rel="noopener">See here &rarr;</a></p>
+    </div>
+  </div>
+
+  <!-- GROUP EXHIBITIONS -->
+  <div class="cv-section">
+    <div class="cv-section-label">Group Exhibitions</div>
+    <div class="cv-section-content">
+
+      <div class="cv-year">
+        <span class="cv-year-num">2026</span>
+        <div class="cv-year-entries">
+          <p class="cv-year-entry">PAR AVION, Neurotitan Gallery, by Best Before &amp; Critical Edge Collectives, Berlin Mitte, DE</p>
+          <p class="cv-year-entry">VIDEO SCREENING, Harkat Studios, Mumbai/Bombay, IN</p>
+          <p class="cv-year-entry">TABLOID PRESS, lidar scans and poetic lines from NYC, Paraphernalia and Addenda, Berlin, DE + NY, USA</p>
+        </div>
+      </div>
+
+      <div class="cv-year">
+        <span class="cv-year-num">2025</span>
+        <div class="cv-year-entries">
+          <p class="cv-year-entry">AS TRANQUIL AS CAN BE, "delhi girls have parisian pastimes too", Serendipity Arts Festival, Goa, IN</p>
+        </div>
+      </div>
+
+      <div class="cv-year">
+        <span class="cv-year-num">2024</span>
+        <div class="cv-year-entries">
+          <p class="cv-year-entry">SAUNA NEVER DRY, premiere of short film "Imagery of Waste and the Other(s)", E&amp;O 11 at PAF, Brussels, BE</p>
+          <p class="cv-year-entry">"co-create", Refraction Festival x ethBerlin x DOD Berlin, sculptural installation of film "To Glitch Perhaps To Dream" (2022) at CIC, Berlin, DE</p>
+        </div>
+      </div>
+
+      <div class="cv-year">
+        <span class="cv-year-num">2023</span>
+        <div class="cv-year-entries">
+          <p class="cv-year-entry">Ancient Ingredients May Taste Ever Fresh, with Tabitha Swanson x Burnt Roti, sink installation and Tezos based carbon neutral NFTs, Glass House, London, UK</p>
+          <p class="cv-year-entry">Les Dragonnes: The Fiasco Show, curated by Arianne Foks, Relais de Belleville, Paris, FR</p>
+        </div>
+      </div>
+
+      <div class="cv-year">
+        <span class="cv-year-num">2022</span>
+        <div class="cv-year-entries">
+          <p class="cv-year-entry">Supermarket, curated by Julian Weber, New Fears Gallery, Berlin, DE</p>
+          <p class="cv-year-entry">Emergency Gathering, curated by Jenny Ames, ACUD Club, Berlin, DE</p>
+          <p class="cv-year-entry">To Glitch Perhaps to Dream, fashion film with KemmlerKemmler for Sicky Mag</p>
+          <p class="cv-year-entry">Provence, Miguel Abreu Gallery, Manhattan, NY</p>
+        </div>
+      </div>
+
+      <div class="cv-year">
+        <span class="cv-year-num">2021</span>
+        <div class="cv-year-entries">
+          <p class="cv-year-entry">Auction, Weserhalle Gallery, Berlin, DE</p>
+          <p class="cv-year-entry">Berlin Photo Week, public installation supported by Berlin Senat, Haubentaucher, Berlin, DE</p>
+        </div>
+      </div>
+
+      <div class="cv-year">
+        <span class="cv-year-num">2020</span>
+        <div class="cv-year-entries">
+          <p class="cv-year-entry">Constitution Wall, curated by Skye Arundati Thomas, Gallery Ske, India Art Fair, New Delhi, IN</p>
+          <p class="cv-year-entry">Sunburnt BB, Berlin Art Week, ExGirlfriend Gallery, Berlin, DE</p>
+        </div>
+      </div>
+
+      <div class="cv-year">
+        <span class="cv-year-num">2019</span>
+        <div class="cv-year-entries">
+          <p class="cv-year-entry">New Femininity #3, Melkweg Expo, Amsterdam, NL</p>
+          <p class="cv-year-entry">Jennifer Aniston Superfans, Retramp Gallery, Berlin, DE</p>
+        </div>
+      </div>
+
+      <div class="cv-year">
+        <span class="cv-year-num">2018</span>
+        <div class="cv-year-entries">
+          <p class="cv-year-entry">One Night Stand, ExGirlfriend Gallery, Berlin, DE</p>
+        </div>
+      </div>
+
+      <div class="cv-year">
+        <span class="cv-year-num">2017</span>
+        <div class="cv-year-entries">
+          <p class="cv-year-entry">Puderpink, Puderraum, Berlin, DE</p>
+          <p class="cv-year-entry">SOVA #7 Adult, Blender Studio, Berlin, DE</p>
+        </div>
+      </div>
+
+      <div class="cv-year">
+        <span class="cv-year-num">2016</span>
+        <div class="cv-year-entries">
+          <p class="cv-year-entry">Mopper's Paradise, Sameheads, Berlin, DE</p>
+        </div>
+      </div>
+
+      <div class="cv-year">
+        <span class="cv-year-num">2015</span>
+        <div class="cv-year-entries">
+          <p class="cv-year-entry">Extended Visions, Blockbuster Exhibitions, Berlin, DE</p>
+          <p class="cv-year-entry">Maansi Jain and Lucia Sciandro, The Club, Berlin, DE</p>
+        </div>
+      </div>
+
+      <div class="cv-year">
+        <span class="cv-year-num">2014</span>
+        <div class="cv-year-entries">
+          <p class="cv-year-entry">Berlin Becoming, Deutsches Haus, Manhattan, NY</p>
+          <p class="cv-year-entry">Food in Context, Entretempo Kitchen Gallery, Berlin, DE</p>
+          <p class="cv-year-entry">Master Plan, Blockbuster Exhibitions, Berlin, DE</p>
+          <p class="cv-year-entry">Pablo Benzo x Maansi Jain, Prachtwerk, Berlin, DE</p>
+          <p class="cv-year-entry">UO Outclass, Center for Creative Practices, Dublin, IE</p>
+          <p class="cv-year-entry">Electron Salon, LACDA, Los Angeles, CA</p>
+        </div>
+      </div>
+
+      <div class="cv-year">
+        <span class="cv-year-num">2013</span>
+        <div class="cv-year-entries">
+          <p class="cv-year-entry">1/X, Gallatin Gallery, New York, NY</p>
+        </div>
+      </div>
+
+      <div class="cv-year">
+        <span class="cv-year-num">2012</span>
+        <div class="cv-year-entries">
+          <p class="cv-year-entry">Works Abroad, Berlinische Galerie, Berlin, DE</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CURATED EXHIBITIONS -->
+  <div class="cv-section">
+    <div class="cv-section-label">Curated Exhibitions</div>
+    <div class="cv-section-content">
+
+      <div class="cv-year">
+        <span class="cv-year-num">2026</span>
+        <div class="cv-year-entries">
+          <p class="cv-year-entry">BETWEEN GULF OF BLANK AND THE BERMUDA TRIANGLE, Gru_nd, Wedding, Berlin, DE</p>
+        </div>
+      </div>
+
+      <div class="cv-year">
+        <span class="cv-year-num">2025</span>
+        <div class="cv-year-entries">
+          <p class="cv-year-entry">I FANCY SOME MORE REST, CRUBA, Mitte, Berlin, DE</p>
+        </div>
+      </div>
+
+      <div class="cv-year">
+        <span class="cv-year-num">2023</span>
+        <div class="cv-year-entries">
+          <p class="cv-year-entry">Marché Jalousie, L4, Berlin, DE</p>
+        </div>
+      </div>
+
+      <div class="cv-year">
+        <span class="cv-year-num">2021</span>
+        <div class="cv-year-entries">
+          <p class="cv-year-entry">Zusammen/Arbeiter:innen, Blender Studio, Berlin, DE</p>
+          <p class="cv-year-entry">48stunden NK, Blender Studio, Berlin, DE</p>
+          <p class="cv-year-entry">Einmal Rein Alles Raus, Noch Ein Metaphor?!, Blender Studio, Berlin, DE</p>
+        </div>
+      </div>
+
+      <div class="cv-year">
+        <span class="cv-year-num">2019</span>
+        <div class="cv-year-entries">
+          <p class="cv-year-entry">Club Tropicana, co-curated with Esben Holk, at Howard McCalebb's Dadapost during the Inkubator Residency, Berlin, DE</p>
+        </div>
+      </div>
+
+      <div class="cv-year">
+        <span class="cv-year-num">2015</span>
+        <div class="cv-year-entries">
+          <p class="cv-year-entry">Where Is My House?, curated by DRY PAINT, Das Gift, Berlin, DE</p>
+        </div>
+      </div>
+
+      <div class="cv-year">
+        <span class="cv-year-num">2014</span>
+        <div class="cv-year-entries">
+          <p class="cv-year-entry">Dry Paint Presents, Das Gift, Berlin, DE</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SOLO EXHIBITIONS -->
+  <div class="cv-section">
+    <div class="cv-section-label">Solo Exhibitions</div>
+    <div class="cv-section-content">
+
+      <div class="cv-year">
+        <span class="cv-year-num">2022</span>
+        <div class="cv-year-entries">
+          <p class="cv-year-entry">Kunst! at the Disco, assistant curation by Dr. Asif Akhtar and Alaric Hobbs, intrnt explrr x Tennis Bar, Berlin, DE</p>
+        </div>
+      </div>
+
+      <div class="cv-year">
+        <span class="cv-year-num">2020</span>
+        <div class="cv-year-entries">
+          <p class="cv-year-entry">Subject to Change, ExGirlfriendBerlin, Wilmersdorf, Berlin, DE</p>
+        </div>
+      </div>
+
+      <div class="cv-year">
+        <span class="cv-year-num">2018</span>
+        <div class="cv-year-entries">
+          <p class="cv-year-entry">Paranoia, Das Gift, Berlin, DE</p>
+          <p class="cv-year-entry">Maansi's Warped Tour, All About Indian Food, New York, NY</p>
+        </div>
+      </div>
+
+      <div class="cv-year">
+        <span class="cv-year-num">2016</span>
+        <div class="cv-year-entries">
+          <p class="cv-year-entry">Tomatoluv Film Premiere, theblushroom.com, Seattle, WA</p>
+        </div>
+      </div>
+
+      <div class="cv-year">
+        <span class="cv-year-num">2014</span>
+        <div class="cv-year-entries">
+          <p class="cv-year-entry">In Sickness and in Health, May You Glisten with Perspiration, Das Gift, Berlin, DE</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PERFORMANCES -->
+  <div class="cv-section">
+    <div class="cv-section-label">Performances</div>
+    <div class="cv-section-content">
+
+      <div class="cv-year">
+        <span class="cv-year-num">2026</span>
+        <div class="cv-year-entries">
+          <p class="cv-year-entry">INKPIKLE (muse), short film, creative direction by Maansi Jain, directed by Sebastian TJ for Aathira Mannali, Kochi, Kerala, IN</p>
+        </div>
+      </div>
+
+      <div class="cv-year">
+        <span class="cv-year-num">2025</span>
+        <div class="cv-year-entries">
+          <p class="cv-year-entry">Les Nouvelles Femmes d'Algers, with ANGEL CHAIR, Contemporary Fine Arts, Charlottenburg, Berlin, DE</p>
+          <p class="cv-year-entry">Director of Creative Media Partnerships (live ongoing performance) for Domina Journal, India Art Fair, Delhi, IN and Art Basel, Basel, CH / Berlin, DE / Paris, FR / Manhattan, NY</p>
+          <p class="cv-year-entry">Sk8rboi Does a Comedy Set, New Fears Gallery, Berlin, DE</p>
+          <p class="cv-year-entry">Live painting performance, WAKE YOUR DREAMS, India Art Fair, Delhi, IN</p>
+        </div>
+      </div>
+
+      <div class="cv-year">
+        <span class="cv-year-num">2024</span>
+        <div class="cv-year-entries">
+          <p class="cv-year-entry">Tomatoluv (Monster Edition), Dornika's BUSH Release, 90mil, Berlin, DE</p>
+          <p class="cv-year-entry">Live painting performance with WAKE YOUR DREAMS, India Art Fair, Delhi, IN</p>
+        </div>
+      </div>
+
+      <div class="cv-year">
+        <span class="cv-year-num">2023</span>
+        <div class="cv-year-entries">
+          <p class="cv-year-entry">Tomatoluv: FACE PAINT AGAINST SURVEILLANCE, Boiler Room x Weeeeirdos, Napoleon Complex, Berlin, DE</p>
+        </div>
+      </div>
+
+      <div class="cv-year">
+        <span class="cv-year-num">2022</span>
+        <div class="cv-year-entries">
+          <p class="cv-year-entry">Poetry reading via bluetooth, Will Kherbek Still Dancing launch, AP Books, Berlin, DE</p>
+          <p class="cv-year-entry">Tomatoluv, lidar and poetry performance, New Fears Gallery, Backsteinboot, Berlin, DE</p>
+        </div>
+      </div>
+
+      <div class="cv-year">
+        <span class="cv-year-num">2021</span>
+        <div class="cv-year-entries">
+          <p class="cv-year-entry">Sk8rboi, Künstler Künstlerin's How Long Is Forever 17, Poropati, Berlin, DE</p>
+          <p class="cv-year-entry">Tomatoluv Explains the Herstory of the Tomato in Hindi, OPIUM HUM, Tabitha Swanson et al.'s Mordorkore, Berlin, DE</p>
+        </div>
+      </div>
+
+      <div class="cv-year">
+        <span class="cv-year-num">2019</span>
+        <div class="cv-year-entries">
+          <p class="cv-year-entry">Sk8rboi, Club Tropicana, Dadapost, Berlin, DE</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- LECTURES -->
+  <div class="cv-section">
+    <div class="cv-section-label">Lectures</div>
+    <div class="cv-section-content">
+
+      <div class="cv-year">
+        <span class="cv-year-num">2025</span>
+        <div class="cv-year-entries">
+          <p class="cv-year-entry">«WHEN PAINTINGS WEAR PRADA» — a POSITIONS ART FAIR panel talk written and curated by Maansi Jain with panelists Bojana Perisic (032c), Mira von Osten (CRUBA, Fashion Positions founder), and Dao Tran (Numero Berlin), presented during Berlin Art Week 2025</p>
+        </div>
+      </div>
+
+      <div class="cv-year">
+        <span class="cv-year-num">2023</span>
+        <div class="cv-year-entries">
+          <p class="cv-year-entry">Guest Lecturer, Theories and Cultural Impact of Media &amp; Technology, Post-Graduate Studies, NYU Tandon School of Engineering's Integrated Design and Media Program, with Dr. Asif Akhtar. Presented lidar-based 3D scans as art and technology in a contemporary context, with a reading on forensic architecture by Eyal Weizman.</p>
+        </div>
+      </div>
+
+      <div class="cv-year">
+        <span class="cv-year-num">2020</span>
+        <div class="cv-year-entries">
+          <p class="cv-year-entry">Guest Lecturer, Postcolonial Visual Culture, Undergraduate Studies, NYU Steinhardt Department of Media, Culture, and Communication. Presented in conjunction with Berlin-based artist Hito Steyerl's text "In Defense of the Poor Image," originally published in e-flux journal 10 (2009).</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- RESIDENCIES -->
+  <div class="cv-section">
+    <div class="cv-section-label">Residencies</div>
+    <div class="cv-section-content">
+
+      <div class="cv-year">
+        <span class="cv-year-num">2025</span>
+        <div class="cv-year-entries">
+          <p class="cv-year-entry">High Desert Test Sites by Andrea Zittel, accepted as an alternate, Joshua Tree, CA, USA</p>
+        </div>
+      </div>
+
+      <div class="cv-year">
+        <span class="cv-year-num">2024</span>
+        <div class="cv-year-entries">
+          <p class="cv-year-entry">Elsewhere and Otherwise 11, Performing Arts Forum, St. Erme, FR</p>
+        </div>
+      </div>
+
+      <div class="cv-year">
+        <span class="cv-year-num">2023</span>
+        <div class="cv-year-entries">
+          <p class="cv-year-entry">Arianne Foks' Les Dragonnes Studio, Noisy-Le-Sec, Paris, FR</p>
+        </div>
+      </div>
+
+      <div class="cv-year">
+        <span class="cv-year-num">2022</span>
+        <div class="cv-year-entries">
+          <p class="cv-year-entry">Chaos Theory with Gabriel Catren and Manuel Eguia, Performing Arts Forum, St. Erme, FR</p>
+        </div>
+      </div>
+
+      <div class="cv-year">
+        <span class="cv-year-num">2019</span>
+        <div class="cv-year-entries">
+          <p class="cv-year-entry">Spring Meeting at Performing Arts Forum — created "dana michel à paf x premier mai à paris" (2019) at Ogutu Moraya, Dana Michel, Jan Ritsema et al., St. Erme, FR</p>
+          <p class="cv-year-entry">Inkubatory Residency, Howard McCalebb's Dadapost, Berlin, DE</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SELECTED PRESS -->
+  <div class="cv-section">
+    <div class="cv-section-label">Selected Press</div>
+    <div class="cv-section-content">
+      <p class="cv-plain">MONOPOL | Ein Zimmer, vier Stunden, viele Ichs</p>
+      <p class="cv-plain">SLEEK | Inside the warped world of Maansi Jain's twisted technicolor</p>
+      <p class="cv-plain">VICE | 'People of Color': Warum diese Fotografin sich über den Begriff lustig macht</p>
+      <p class="cv-plain">Electronic Beats | Tomatoluv at Mordorkore</p>
+      <p class="cv-plain">CNBC | India Art Fair Artists Respond To Crisis In Contemporary Society</p>
+    </div>
+  </div>
+
+</div><!-- /cv-body -->
+
+<!-- PHOTO OF ARTIST -->
+<div class="artist-photo">
+  <!-- REPLACE src WITH YOUR GITHUB IMAGE PATH e.g. src="images/portrait.jpg" -->
+  <div class="artist-photo-placeholder">
+    <span class="placeholder-icon">📷</span>
+    <span>Replace with your portrait</span>
+    <span style="font-size:10px; color:#ccc;">src="images/portrait.jpg"</span>
+  </div>
+  <!-- UNCOMMENT BELOW AND DELETE PLACEHOLDER DIV ABOVE ONCE IMAGE IS ADDED:
+  <img src="images/portrait.jpg" alt="Maansi Jain">
+  -->
+</div>
+<div class="photo-caption">Maansi Jain, 2026</div>
+
+<footer>
+  <div class="footer-left">&copy; Maansi Jain 2026</div>
+  <div class="footer-links">
+    <a href="https://www.instagram.com/slurrrrrrrrp_/" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://www.saatchiart.com/account/artworks/667028" target="_blank" rel="noopener">Collect</a>
+    <a href="mailto:janusroth8@gmail.com">Contact</a>
+    <a href="/">Home</a>
+  </div>
+</footer>
+
+</body>
+</html>
