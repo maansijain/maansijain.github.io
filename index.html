@@ -226,18 +226,36 @@ flex-shrink: 0;
 .main-image {
 border-top: 1px solid #111;
 border-bottom: 1px solid #111;
+overflow: hidden;
+height: 80vh;
+cursor: grab;
+position: relative;
+user-select: none;
 }
+
+.main-image.grabbing { cursor: grabbing; }
 
 .main-image img {
-width: 100%;
-max-height: 90vh;
-object-fit: cover;
-object-position: center;
+position: absolute;
+transform-origin: center center;
 display: block;
+/* sizing handled by JS */
 }
 
+/* on mobile: just show full image, no pan */
 @media (max-width: 800px) {
-.main-image img { max-height: 70vh; }
+.main-image {
+  height: auto;
+  cursor: default;
+  overflow: visible;
+  border-top: none;
+}
+.main-image img {
+  position: static;
+  width: 100%;
+  height: auto;
+  transform: none !important;
+}
 }
 
 /* ── PRESS SECTION ── */
@@ -431,10 +449,97 @@ footer { padding: 18px 20px; flex-direction: column; gap: 12px; align-items: fle
 </div>
 
 <!-- MAIN IMAGE -->
-<div class="main-image">
-  <img src="images/IMG_2186.PNG" alt="arm's lengths distances and other parallel realities, 2019 — Maansi Jain">
+<div class="main-image" id="imgViewer">
+  <img src="images/IMG_2186.PNG" alt="arm's lengths distances and other parallel realities, 2019 — Maansi Jain" id="viewerImg" draggable="false">
 </div>
 <div class="photo-caption" style="padding: 12px 40px; font-size: 11px; letter-spacing: 0.08em; color: #aaa; border-bottom: 1px solid #111;"><em>arm's lengths distances and other parallel realities</em>, 2019</div>
+
+<script>
+(function() {
+  // only run on desktop
+  if (window.innerWidth <= 800) return;
+
+  const viewer = document.getElementById('imgViewer');
+  const img = document.getElementById('viewerImg');
+
+  let scale = 1.6; // start zoomed in
+  const minScale = 0.5; // how far out they can zoom
+  const maxScale = 4;
+  let translateX = 0;
+  let translateY = 0;
+  let isDragging = false;
+  let startX, startY;
+
+  function clampTranslate() {
+    const vw = viewer.offsetWidth;
+    const vh = viewer.offsetHeight;
+    const iw = img.naturalWidth * scale;
+    const ih = img.naturalHeight * scale;
+    // if image smaller than container, center it
+    const maxX = Math.max(0, (iw - vw) / 2);
+    const maxY = Math.max(0, (ih - vh) / 2);
+    translateX = Math.min(maxX, Math.max(-maxX, translateX));
+    translateY = Math.min(maxY, Math.max(-maxY, translateY));
+  }
+
+  function applyTransform() {
+    img.style.transform = `translate(calc(-50% + ${translateX}px), calc(-50% + ${translateY}px)) scale(${scale})`;
+  }
+
+  function initImage() {
+    const vw = viewer.offsetWidth;
+    const vh = viewer.offsetHeight;
+    const iw = img.naturalWidth;
+    const ih = img.naturalHeight;
+
+    // set image to its natural size, positioned center
+    img.style.width = iw + 'px';
+    img.style.height = ih + 'px';
+    img.style.left = '50%';
+    img.style.top = '50%';
+
+    // set initial scale so image fills container width at zoom 1
+    const fillScale = Math.max(vw / iw, vh / ih);
+    scale = fillScale * 1.4; // start 40% more zoomed than fill
+    translateX = 0;
+    translateY = 0;
+    applyTransform();
+  }
+
+  img.addEventListener('load', initImage);
+  if (img.complete) initImage();
+
+  // scroll to zoom
+  viewer.addEventListener('wheel', function(e) {
+    e.preventDefault();
+    const delta = e.deltaY > 0 ? -0.08 : 0.08;
+    scale = Math.min(maxScale, Math.max(minScale, scale + delta * scale));
+    clampTranslate();
+    applyTransform();
+  }, { passive: false });
+
+  // drag to pan
+  viewer.addEventListener('mousedown', function(e) {
+    isDragging = true;
+    startX = e.clientX - translateX;
+    startY = e.clientY - translateY;
+    viewer.classList.add('grabbing');
+  });
+
+  window.addEventListener('mousemove', function(e) {
+    if (!isDragging) return;
+    translateX = e.clientX - startX;
+    translateY = e.clientY - startY;
+    clampTranslate();
+    applyTransform();
+  });
+
+  window.addEventListener('mouseup', function() {
+    isDragging = false;
+    viewer.classList.remove('grabbing');
+  });
+})();
+</script>
 
 <!-- PRESS -->
 <div class="press">
