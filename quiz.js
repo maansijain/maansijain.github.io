@@ -170,6 +170,7 @@ const prescriptions = [
 const questions = [
   {
     text: "when nobody is watching, where does your mind go?",
+    image: "images/infinite-abundant-nature.jpg",
     options: [
       { text: "a city i left behind", tags: ["exile", "displacement", "migration"] },
       { text: "a future i haven't reached yet", tags: ["becoming", "transition", "imagination"] },
@@ -181,6 +182,7 @@ const questions = [
   },
   {
     text: "which room feels most important right now?",
+    image: "images/club-kitchen.jpg",
     options: [
       { text: "kitchen", tags: ["nourishment", "pleasure", "warmth"] },
       { text: "balcony", tags: ["solitude", "possibility", "expansion"] },
@@ -192,6 +194,7 @@ const questions = [
   },
   {
     text: "what are you carrying too much of?",
+    image: "images/no-rehashing-pain.jpg",
     options: [
       { text: "an old story", tags: ["grief", "letting go", "survival"] },
       { text: "someone else's expectations", tags: ["defiance", "refusal", "identity"] },
@@ -203,6 +206,7 @@ const questions = [
   },
   {
     text: "which sentence feels closest to your life right now?",
+    image: "images/where-am-i-blue-dot.jpg",
     options: [
       { text: "i am searching.", tags: ["searching", "orientation", "solitude"] },
       { text: "i am arriving.", tags: ["becoming", "transition", "home"] },
@@ -214,6 +218,7 @@ const questions = [
   },
   {
     text: "a stranger offers you one gift. which do you choose?",
+    image: "images/whose-money-anyway.jpg",
     options: [
       { text: "a key", tags: ["transition", "freedom", "becoming"] },
       { text: "a photograph", tags: ["memory", "longing", "return"] },
@@ -225,6 +230,7 @@ const questions = [
   },
   {
     text: "when you think about the future, what image appears?",
+    image: "images/only-living-swimmer-mumbai.jpg",
     options: [
       { text: "open water", tags: ["freedom", "movement", "wildness"] },
       { text: "a crowded dance floor", tags: ["embodiment", "celebration", "release"] },
@@ -236,6 +242,7 @@ const questions = [
   },
   {
     text: "what deserves more attention from you?",
+    image: "images/gaze.jpg",
     options: [
       { text: "my body", tags: ["embodiment", "body", "pleasure"] },
       { text: "my pleasure", tags: ["appetite", "nourishment", "desire"] },
@@ -247,6 +254,7 @@ const questions = [
   },
   {
     text: "which feeling are you secretly hoping to experience more often?",
+    image: "images/brb-dance-berlin.jpg",
     options: [
       { text: "wonder", tags: ["imagination", "expansion", "possibility"] },
       { text: "relief", tags: ["recovery", "letting go", "survival"] },
@@ -258,6 +266,7 @@ const questions = [
   },
   {
     text: "what is your current relationship to the past?",
+    image: "images/ill-think-about-it-tomorrow.jpg",
     options: [
       { text: "i revisit it constantly", tags: ["longing", "grief", "nostalgia"] },
       { text: "i am trying to escape it", tags: ["departure", "letting go", "restlessness"] },
@@ -269,6 +278,7 @@ const questions = [
   },
   {
     text: "imagine someone who loves you completely. what do they tell you?",
+    image: "images/searching-open-air.jpg",
     options: [
       { text: "slow down.", tags: ["observation", "solitude", "expansion"] },
       { text: "keep going.", tags: ["survival", "movement", "wildness"] },
@@ -367,6 +377,13 @@ function renderQuestion() {
     ((currentQuestion / total) * 100) + "%";
   document.getElementById("questionCount").textContent =
     (currentQuestion + 1) + " / " + total;
+
+  // update question image
+  const qImg = document.getElementById("questionImage");
+  if (qImg && q.image) {
+    qImg.src = q.image;
+    qImg.alt = q.text;
+  }
 
   const area = document.getElementById("questionArea");
   area.innerHTML = "";

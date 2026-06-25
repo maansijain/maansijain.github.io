@@ -4,79 +4,122 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>monsoon prescription — maansi jain</title>
+  <meta name="description" content="An interactive art prescription quiz. Answer a few questions and receive an artwork and Kamala Das poem selected for who you are right now.">
   <link rel="stylesheet" href="quiz.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet" />
 </head>
 <body>
 
-  <header class="site-header">
-    <a href="/" class="site-name">maansi jain</a>
-  </header>
+<!-- TOPBAR -->
+<div class="topbar">
+  <a href="/" class="topbar-name">maansi jain</a>
+  <div class="topbar-right">monsoon prescription</div>
+</div>
 
-  <!-- LANDING -->
-  <section id="landing" class="screen active">
-    <div class="landing-inner">
-      <p class="eyebrow">monsoon 2026</p>
-      <h1 class="landing-title">receive your<br><em>monsoon prescription</em></h1>
-      <p class="landing-body">sometimes we do not need advice.<br>sometimes we need the correct artwork.</p>
-      <p class="landing-body">answer a few questions and receive an artwork and poem selected for who you are right now.</p>
-      <button class="btn-start" onclick="startQuiz()">begin</button>
+<!-- LANDING -->
+<section id="landing" class="screen active">
+
+  <div class="hero">
+    <div class="hero-headline">monsoon<br><span>prescription</span></div>
+    <div class="hero-sub">
+      monsoon 2026<br>
+      berlin<br>
+      maansi jain x kamala das
     </div>
-  </section>
+  </div>
 
-  <!-- QUIZ -->
-  <section id="quiz" class="screen">
-    <div class="quiz-inner">
-      <div class="progress-line">
-        <div class="progress-fill" id="progressFill"></div>
-      </div>
-      <p class="question-count" id="questionCount"></p>
+  <div class="landing-image-strip">
+    <img src="images/brb-dance-berlin.jpg" alt="brb: going to dance in berlin" />
+    <img src="images/only-living-swimmer-mumbai.jpg" alt="the only living swimmer in mumbai" />
+    <img src="images/searching-open-air.jpg" alt="searching for an open air" />
+  </div>
+
+  <div class="landing-intro">
+    <div class="landing-intro-text">
+      <p>sometimes we do not need advice.</p>
+      <p>sometimes we need the correct artwork.</p>
+      <p>answer a few questions and receive an artwork and poem selected for who you are right now.</p>
+      <button class="btn-start" onclick="startQuiz()">begin &rarr;</button>
+    </div>
+    <div class="hero-sub" style="text-align:left; line-height:2.2;">
+      10 questions<br>
+      12 possible prescriptions<br>
+      poems by kamala das<br>
+      works by maansi jain
+    </div>
+  </div>
+
+</section>
+
+<!-- QUIZ -->
+<section id="quiz" class="screen">
+  <div class="progress-bar">
+    <div class="progress-fill" id="progressFill"></div>
+  </div>
+  <div class="quiz-topbar">
+    <div class="question-count" id="questionCount"></div>
+    <div class="topbar-right">monsoon prescription</div>
+  </div>
+  <div class="quiz-body">
+    <div class="quiz-left">
+      <img id="questionImage" src="" alt="" />
+    </div>
+    <div class="quiz-right">
       <div id="questionArea"></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- RESULT -->
-  <section id="result" class="screen">
-    <div class="result-inner">
-      <p class="eyebrow" id="resultEyebrow"></p>
-      <h2 class="result-archetype" id="resultArchetype"></h2>
+<!-- RESULT -->
+<section id="result" class="screen">
 
-      <div class="artwork-block">
-        <img id="resultImage" src="" alt="" class="artwork-image" />
-        <p class="artwork-caption" id="resultArtworkTitle"></p>
+  <div class="result-hero">
+    <div>
+      <div class="result-eyebrow" id="resultEyebrow"></div>
+      <div class="result-archetype" id="resultArchetype"></div>
+    </div>
+    <div class="hero-sub" style="text-align:right;">
+      monsoon 2026<br>
+      maansi jain<br>
+      x kamala das
+    </div>
+  </div>
+
+  <div class="result-grid">
+    <div class="result-image-col">
+      <img id="resultImage" src="" alt="" />
+    </div>
+    <div class="result-text-col">
+      <div class="section-label">prescription</div>
+      <p class="prescription-text" id="resultPrescription"></p>
+
+      <div class="meta-row">
+        <div class="meta-label">dosage</div>
+        <div class="meta-text" id="resultDosage"></div>
       </div>
 
-      <div class="prescription-block">
-        <p class="prescription-label">prescription</p>
-        <p class="prescription-text" id="resultPrescription"></p>
-
-        <div class="dosage-block">
-          <p class="dosage-label">dosage</p>
-          <p class="dosage-text" id="resultDosage"></p>
-        </div>
-
-        <div class="dosage-block">
-          <p class="dosage-label">side effects</p>
-          <p class="dosage-text" id="resultSideEffects"></p>
-        </div>
-      </div>
-
-      <div class="poem-block">
-        <p class="poem-label">your poem</p>
-        <p class="poem-title" id="resultPoemTitle"></p>
-        <p class="poem-author">Kamala Das</p>
-        <div class="poem-text" id="resultPoemText"></div>
-      </div>
-
-      <div class="result-footer">
-        <button class="btn-retake" onclick="resetQuiz()">take it again</button>
-        <a href="/" class="btn-home">return to studio</a>
+      <div class="meta-row">
+        <div class="meta-label">side effects</div>
+        <div class="meta-text" id="resultSideEffects"></div>
       </div>
     </div>
-  </section>
+  </div>
 
-  <script src="quiz.js"></script>
+  <div class="artwork-caption" id="resultArtworkTitle"></div>
+
+  <div class="poem-section">
+    <div class="section-label">your poem</div>
+    <div class="poem-title" id="resultPoemTitle"></div>
+    <div class="poem-author">Kamala Das — Summer in Calcutta</div>
+    <div class="poem-text" id="resultPoemText"></div>
+  </div>
+
+  <div class="result-actions">
+    <button class="btn-retake" onclick="resetQuiz()">take it again &rarr;</button>
+    <a href="/" class="btn-home">return to studio</a>
+  </div>
+
+</section>
+
+<script src="quiz.js"></script>
 </body>
 </html>
