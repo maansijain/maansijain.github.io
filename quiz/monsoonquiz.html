@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>monsoon prescription — maansi jain</title>
+  <link rel="stylesheet" href="quiz.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="/" class="site-name">maansi jain</a>
+  </header>
+
+  <!-- LANDING -->
+  <section id="landing" class="screen active">
+    <div class="landing-inner">
+      <p class="eyebrow">monsoon 2026</p>
+      <h1 class="landing-title">receive your<br><em>monsoon prescription</em></h1>
+      <p class="landing-body">sometimes we do not need advice.<br>sometimes we need the correct artwork.</p>
+      <p class="landing-body">answer a few questions and receive an artwork and poem selected for who you are right now.</p>
+      <button class="btn-start" onclick="startQuiz()">begin</button>
+    </div>
+  </section>
+
+  <!-- QUIZ -->
+  <section id="quiz" class="screen">
+    <div class="quiz-inner">
+      <div class="progress-line">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+      <p class="question-count" id="questionCount"></p>
+      <div id="questionArea"></div>
+    </div>
+  </section>
+
+  <!-- RESULT -->
+  <section id="result" class="screen">
+    <div class="result-inner">
+      <p class="eyebrow" id="resultEyebrow"></p>
+      <h2 class="result-archetype" id="resultArchetype"></h2>
+
+      <div class="artwork-block">
+        <img id="resultImage" src="" alt="" class="artwork-image" />
+        <p class="artwork-caption" id="resultArtworkTitle"></p>
+      </div>
+
+      <div class="prescription-block">
+        <p class="prescription-label">prescription</p>
+        <p class="prescription-text" id="resultPrescription"></p>
+
+        <div class="dosage-block">
+          <p class="dosage-label">dosage</p>
+          <p class="dosage-text" id="resultDosage"></p>
+        </div>
+
+        <div class="dosage-block">
+          <p class="dosage-label">side effects</p>
+          <p class="dosage-text" id="resultSideEffects"></p>
+        </div>
+      </div>
+
+      <div class="poem-block">
+        <p class="poem-label">your poem</p>
+        <p class="poem-title" id="resultPoemTitle"></p>
+        <p class="poem-author">Kamala Das</p>
+        <div class="poem-text" id="resultPoemText"></div>
+      </div>
+
+      <div class="result-footer">
+        <button class="btn-retake" onclick="resetQuiz()">take it again</button>
+        <a href="/" class="btn-home">return to studio</a>
+      </div>
+    </div>
+  </section>
+
+  <script src="quiz.js"></script>
+</body>
+</html>

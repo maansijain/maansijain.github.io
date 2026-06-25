@@ -1,0 +1,369 @@
+/* ─────────────────────────────────────────────
+   MONSOON PRESCRIPTION — quiz.css
+   matches maansijain.com: white, black, minimal
+   display: Cormorant Garamond
+   body: Inter
+───────────────────────────────────────────── */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --white: #ffffff;
+  --black: #111111;
+  --grey-light: #e8e8e8;
+  --grey-mid: #999999;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --max-width: 640px;
+  --spacing-xs: 0.5rem;
+  --spacing-s: 1rem;
+  --spacing-m: 2rem;
+  --spacing-l: 3.5rem;
+  --spacing-xl: 6rem;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background: var(--white);
+  color: var(--black);
+  font-family: var(--font-body);
+  font-weight: 300;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ── HEADER ── */
+.site-header {
+  padding: var(--spacing-m) var(--spacing-m) 0;
+}
+
+.site-name {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  color: var(--black);
+  text-decoration: none;
+  text-transform: lowercase;
+}
+
+.site-name:hover {
+  opacity: 0.5;
+}
+
+/* ── SCREENS ── */
+.screen {
+  display: none;
+  min-height: calc(100vh - 60px);
+}
+
+.screen.active {
+  display: block;
+}
+
+/* ── LANDING ── */
+.landing-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--spacing-xl) var(--spacing-m);
+}
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 300;
+  letter-spacing: 0.15em;
+  text-transform: lowercase;
+  color: var(--grey-mid);
+  margin-bottom: var(--spacing-m);
+}
+
+.landing-title {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(2.4rem, 6vw, 3.8rem);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  margin-bottom: var(--spacing-l);
+}
+
+.landing-title em {
+  font-style: italic;
+}
+
+.landing-body {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 300;
+  line-height: 1.75;
+  color: #444;
+  margin-bottom: var(--spacing-s);
+  max-width: 420px;
+}
+
+.btn-start {
+  display: inline-block;
+  margin-top: var(--spacing-l);
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--black);
+  padding: 0 0 2px 0;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  text-transform: lowercase;
+  cursor: pointer;
+  color: var(--black);
+  transition: opacity 0.2s;
+}
+
+.btn-start:hover {
+  opacity: 0.4;
+}
+
+/* ── QUIZ ── */
+.quiz-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--spacing-m) var(--spacing-m) var(--spacing-xl);
+}
+
+.progress-line {
+  height: 1px;
+  background: var(--grey-light);
+  margin-bottom: var(--spacing-l);
+  margin-top: var(--spacing-m);
+}
+
+.progress-fill {
+  height: 1px;
+  background: var(--black);
+  width: 0%;
+  transition: width 0.4s ease;
+}
+
+.question-count {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  color: var(--grey-mid);
+  text-transform: lowercase;
+  margin-bottom: var(--spacing-l);
+}
+
+.question-text {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
+  line-height: 1.25;
+  margin-bottom: var(--spacing-l);
+}
+
+.options-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-s);
+}
+
+.option-btn {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--grey-light);
+  padding: var(--spacing-s) 0;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 300;
+  color: var(--black);
+  cursor: pointer;
+  transition: border-color 0.2s, opacity 0.2s;
+  letter-spacing: 0.01em;
+}
+
+.option-btn:hover {
+  border-color: var(--black);
+}
+
+/* ── RESULT ── */
+.result-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--spacing-m) var(--spacing-m) var(--spacing-xl);
+}
+
+.result-archetype {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(2rem, 6vw, 3.2rem);
+  line-height: 1.1;
+  margin-bottom: var(--spacing-l);
+  letter-spacing: -0.01em;
+}
+
+/* ── ARTWORK ── */
+.artwork-block {
+  margin-bottom: var(--spacing-l);
+}
+
+.artwork-image {
+  width: 100%;
+  display: block;
+  max-height: 520px;
+  object-fit: contain;
+  object-position: left;
+  margin-bottom: var(--spacing-xs);
+}
+
+.artwork-caption {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 300;
+  color: var(--grey-mid);
+  letter-spacing: 0.05em;
+}
+
+/* ── PRESCRIPTION ── */
+.prescription-block {
+  border-top: 1px solid var(--grey-light);
+  padding-top: var(--spacing-l);
+  margin-bottom: var(--spacing-l);
+}
+
+.prescription-label {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: lowercase;
+  color: var(--grey-mid);
+  margin-bottom: var(--spacing-m);
+}
+
+.prescription-text {
+  font-family: var(--font-display);
+  font-size: clamp(1.05rem, 2.5vw, 1.3rem);
+  font-weight: 300;
+  line-height: 1.7;
+  margin-bottom: var(--spacing-l);
+}
+
+.dosage-block {
+  margin-bottom: var(--spacing-m);
+}
+
+.dosage-label {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: lowercase;
+  color: var(--grey-mid);
+  margin-bottom: var(--spacing-xs);
+}
+
+.dosage-text {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 300;
+  line-height: 1.7;
+  color: #333;
+}
+
+/* ── POEM ── */
+.poem-block {
+  border-top: 1px solid var(--grey-light);
+  padding-top: var(--spacing-l);
+  margin-bottom: var(--spacing-l);
+}
+
+.poem-label {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: lowercase;
+  color: var(--grey-mid);
+  margin-bottom: var(--spacing-m);
+}
+
+.poem-title {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 300;
+  font-style: italic;
+  margin-bottom: 0.25rem;
+}
+
+.poem-author {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 300;
+  color: var(--grey-mid);
+  margin-bottom: var(--spacing-l);
+  letter-spacing: 0.05em;
+}
+
+.poem-text {
+  font-family: var(--font-display);
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  font-weight: 300;
+  line-height: 1.9;
+  white-space: pre-wrap;
+  color: #222;
+}
+
+/* ── RESULT FOOTER ── */
+.result-footer {
+  border-top: 1px solid var(--grey-light);
+  padding-top: var(--spacing-l);
+  display: flex;
+  gap: var(--spacing-m);
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.btn-retake,
+.btn-home {
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--black);
+  padding: 0 0 2px 0;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  text-transform: lowercase;
+  cursor: pointer;
+  color: var(--black);
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.btn-retake:hover,
+.btn-home:hover {
+  opacity: 0.4;
+}
+
+/* ── MOBILE ── */
+@media (max-width: 480px) {
+  .landing-inner,
+  .quiz-inner,
+  .result-inner {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  .artwork-image {
+    max-height: 380px;
+    object-position: center;
+  }
+}
