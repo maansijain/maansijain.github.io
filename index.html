@@ -228,34 +228,25 @@ border-top: 1px solid #111;
 border-bottom: 1px solid #111;
 overflow: hidden;
 height: 50vh;
-cursor: grab;
 position: relative;
-user-select: none;
 }
 
-.main-image.grabbing { cursor: grabbing; }
-
-.main-image img {
+.main-image .slide {
 position: absolute;
-transform-origin: center center;
-display: block;
-/* sizing handled by JS */
+top: 0; left: 0;
+width: 100%;
+height: 100%;
+object-fit: cover;
+opacity: 0;
+transition: opacity 1s ease;
 }
 
-/* on mobile: just show full image, no pan */
+.main-image .slide.active {
+opacity: 1;
+}
+
 @media (max-width: 800px) {
-.main-image {
-  height: auto;
-  cursor: default;
-  overflow: visible;
-  border-top: none;
-}
-.main-image img {
-  position: static;
-  width: 100%;
-  height: auto;
-  transform: none !important;
-}
+.main-image { height: 60vw; }
 }
 
 /* ── PRESS SECTION ── */
@@ -459,97 +450,23 @@ footer { padding: 18px 20px; flex-direction: column; gap: 12px; align-items: fle
 
 <!-- MAIN IMAGE -->
 <div class="main-image" id="imgViewer">
-  <img src="images/whose-money-anyway.jpg" alt="whose money is it anyway &amp; bet, 2025 — maansi jain" id="viewerImg" draggable="false">
+  <img class="slide active" src="images/whose-money-anyway.jpg" alt="whose money is it anyway &amp; bet, 2025 — maansi jain" draggable="false">
+  <img class="slide" src="images/brb-dance-berlin.jpg" alt="brb: going to dance in berlin" draggable="false">
+  <img class="slide" src="images/only-living-swimmer-mumbai.jpg" alt="the only living swimmer in mumbai" draggable="false">
+  <img class="slide" src="images/searching-open-air.jpg" alt="searching for an open air" draggable="false">
+  <img class="slide" src="images/no-rehashing-pain.jpg" alt="no rehashing pain" draggable="false">
 </div>
 <div class="photo-caption" style="padding: 12px 40px; font-size: 11px; letter-spacing: 0.08em; color: #aaa; border-bottom: 1px solid #111;"><em>monsoon prescription</em>, 2025</div>
 
 <script>
 (function() {
-  // only run on desktop
-  if (window.innerWidth <= 800) return;
-
-  const viewer = document.getElementById('imgViewer');
-  const img = document.getElementById('viewerImg');
-
-  let scale = 1.6; // start zoomed in
-  const minScale = 0.001;
-  const maxScale = 4;
-  let translateX = 0;
-  let translateY = 0;
-  let isDragging = false;
-  let startX, startY;
-
-  function clampTranslate() {
-    const vw = viewer.offsetWidth;
-    const vh = viewer.offsetHeight;
-    const iw = img.naturalWidth * scale;
-    const ih = img.naturalHeight * scale;
-    // if image smaller than container, center it
-    const maxX = Math.max(0, (iw - vw) / 2);
-    const maxY = Math.max(0, (ih - vh) / 2);
-    translateX = Math.min(maxX, Math.max(-maxX, translateX));
-    translateY = Math.min(maxY, Math.max(-maxY, translateY));
-  }
-
-  function applyTransform() {
-    img.style.transform = `translate(calc(-50% + ${translateX}px), calc(-50% + ${translateY}px)) scale(${scale})`;
-  }
-
-  function initImage() {
-    const vw = viewer.offsetWidth;
-    const vh = viewer.offsetHeight;
-    const iw = img.naturalWidth;
-    const ih = img.naturalHeight;
-
-    img.style.width = iw + 'px';
-    img.style.height = ih + 'px';
-    img.style.left = '50%';
-    img.style.top = '50%';
-
-    // zoom so image fills full width of container
-    scale = vw / iw;
-
-    // shift down so bottom half (stripes) is visible
-    // move image up so bottom portion fills the box
-    translateX = 0;
-    translateY = -(ih * scale - vh) / 2; // push toward bottom half
-    clampTranslate();
-    applyTransform();
-  }
-
-  img.addEventListener('load', initImage);
-  if (img.complete) initImage();
-
-  // scroll to zoom — only when ctrl or cmd held, otherwise let page scroll
-  viewer.addEventListener('wheel', function(e) {
-    if (!e.ctrlKey && !e.metaKey) return; // let normal scroll through
-    e.preventDefault();
-    const delta = e.deltaY > 0 ? -0.08 : 0.08;
-    scale = Math.min(maxScale, Math.max(minScale, scale + delta * scale));
-    clampTranslate();
-    applyTransform();
-  }, { passive: false });
-
-  // drag to pan
-  viewer.addEventListener('mousedown', function(e) {
-    isDragging = true;
-    startX = e.clientX - translateX;
-    startY = e.clientY - translateY;
-    viewer.classList.add('grabbing');
-  });
-
-  window.addEventListener('mousemove', function(e) {
-    if (!isDragging) return;
-    translateX = e.clientX - startX;
-    translateY = e.clientY - startY;
-    clampTranslate();
-    applyTransform();
-  });
-
-  window.addEventListener('mouseup', function() {
-    isDragging = false;
-    viewer.classList.remove('grabbing');
-  });
+  const slides = document.querySelectorAll('#imgViewer .slide');
+  let current = 0;
+  setInterval(function() {
+    slides[current].classList.remove('active');
+    current = (current + 1) % slides.length;
+    slides[current].classList.add('active');
+  }, 3000);
 })();
 </script>
 
