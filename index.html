@@ -124,7 +124,7 @@ flex-shrink: 0;
 
 .grid {
 display: grid;
-grid-template-columns: repeat(4, 1fr);
+grid-template-columns: repeat(5, 1fr);
 border-bottom: 1px solid #111;
 }
 
@@ -136,7 +136,7 @@ flex-direction: column;
 }
 
 .col:last-child { border-right: none; }
-.col:nth-child(4) { border-right: none; }
+.col:nth-child(5) { border-right: none; }
 
 .col-num {
 font-size: 10px;
@@ -407,13 +407,22 @@ footer { padding: 18px 20px; flex-direction: column; gap: 12px; align-items: fle
 <div class="grid">
 
   <div class="col">
+    <div class="col-num">00</div>
+    <div class="col-title">Monsoon<br>Prescription</div>
+    <p class="col-desc">
+      sometimes we do not need advice. sometimes we need the correct artwork. answer a few questions and receive a painting and poem.
+    </p>
+    <a class="col-btn" href="/monsoonquiz.html">Begin &rarr;</a>
+  </div>
+
+  <div class="col">
     <div class="col-num">01</div>
     <div class="col-title">Subscribe<br>Free</div>
     <p class="col-desc">
       Studio letters. New work, upcoming shows, what's being made.
       Free forever. The inside track before anyone else.
     </p>
-    <a class="col-btn" href="https://slurrrrrrp.substack.com/" target="_blank" rel="noopener">Subscribe &rarr;</a>
+    <a class="col-btn" style="background:#e8321a;" href="https://slurrrrrrp.substack.com/" target="_blank" rel="noopener">Subscribe &rarr;</a>
   </div>
 
   <div class="col">
@@ -450,9 +459,9 @@ footer { padding: 18px 20px; flex-direction: column; gap: 12px; align-items: fle
 
 <!-- MAIN IMAGE -->
 <div class="main-image" id="imgViewer">
-  <img src="images/IMG_2186.webp" alt="arm's lengths distances and other parallel realities, 2019 — Maansi Jain" id="viewerImg" draggable="false">
+  <img src="images/whose-money-anyway.jpg" alt="whose money is it anyway &amp; bet, 2025 — maansi jain" id="viewerImg" draggable="false">
 </div>
-<div class="photo-caption" style="padding: 12px 40px; font-size: 11px; letter-spacing: 0.08em; color: #aaa; border-bottom: 1px solid #111;"><em>arm's lengths distances and other parallel realities</em>, 2019</div>
+<div class="photo-caption" style="padding: 12px 40px; font-size: 11px; letter-spacing: 0.08em; color: #aaa; border-bottom: 1px solid #111;"><em>monsoon prescription</em>, 2025</div>
 
 <script>
 (function() {
