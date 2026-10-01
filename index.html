@@ -239,27 +239,20 @@ flex-shrink: 0;
 .main-image {
 border-top: 1px solid #111;
 border-bottom: 1px solid #111;
-overflow: hidden;
-height: 50vh;
-position: relative;
+padding: 40px;
+background: #fff;
 }
 
-.main-image .slide {
-position: absolute;
-top: 0; left: 0;
+.main-image img {
+display: block;
 width: 100%;
-height: 100%;
-object-fit: cover;
-opacity: 0;
-transition: opacity 1s ease;
-}
-
-.main-image .slide.active {
-opacity: 1;
+max-width: 1200px;
+height: auto;
+margin: 0 auto;
 }
 
 @media (max-width: 800px) {
-.main-image { height: 60vw; }
+.main-image { padding: 20px 0; }
 }
 
 /* ── PRESS SECTION ── */
@@ -446,26 +439,10 @@ footer { padding: 18px 20px; flex-direction: column; gap: 12px; align-items: fle
 </div>
 
 <!-- MAIN IMAGE -->
-<div class="main-image" id="imgViewer">
-  <img class="slide active" src="images/whose-money-anyway.jpg" alt="whose money is it anyway &amp; bet, 2025 — maansi jain" draggable="false">
-  <img class="slide" src="images/brb-dance-berlin.jpg" alt="brb: going to dance in berlin" draggable="false">
-  <img class="slide" src="images/only-living-swimmer-mumbai.jpg" alt="the only living swimmer in mumbai" draggable="false">
-  <img class="slide" src="images/searching-open-air.jpg" alt="searching for an open air" draggable="false">
-  <img class="slide" src="images/no-rehashing-pain.jpg" alt="no rehashing pain" draggable="false">
+<div class="main-image">
+  <img src="images/whose-money-anyway.jpg" alt="whose money is it anyway &amp; bet, 2025 — diptych by maansi jain" width="1200" height="638">
 </div>
-<div class="photo-caption" style="padding: 12px 40px; font-size: 11px; letter-spacing: 0.08em; color: #aaa; border-bottom: 1px solid #111;"><em>monsoon prescription</em>, 2025</div>
-
-<script>
-(function() {
-  const slides = document.querySelectorAll('#imgViewer .slide');
-  let current = 0;
-  setInterval(function() {
-    slides[current].classList.remove('active');
-    current = (current + 1) % slides.length;
-    slides[current].classList.add('active');
-  }, 3000);
-})();
-</script>
+<div class="photo-caption" style="padding: 12px 40px; font-size: 11px; letter-spacing: 0.08em; color: #aaa; border-bottom: 1px solid #111;"><em>whose money is it anyway</em> &amp; <em>bet</em>, 2025</div>
 
 <!-- PRESS -->
 <div class="press">
