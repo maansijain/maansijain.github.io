@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 <url><loc>https://maansijain.com/</loc><lastmod>2026-10-01</lastmod></url>
 <url><loc>https://maansijain.com/commission/</loc><lastmod>2026-10-01</lastmod></url>
 <url><loc>https://maansijain.com/cv.html</loc><lastmod>2026-10-01</lastmod></url>
 <url><loc>https://maansijain.com/monsoonquiz.html</loc><lastmod>2026-10-01</lastmod></url>
 <url><loc>https://maansijain.com/workshops/</loc><lastmod>2026-10-01</lastmod></url>
-<url><loc>https://maansijain.com/workshops/draw-otherwise/</loc><lastmod>2026-10-01</lastmod></url>
-<url><loc>https://maansijain.com/workshops/words-become-art/</loc><lastmod>2026-10-01</lastmod></url>
-<url><loc>https://maansijain.com/workshops/make-the-ordinary-strange/</loc><lastmod>2026-10-01</lastmod></url>
-<url><loc>https://maansijain.com/workshops/perform-the-image/</loc><lastmod>2026-10-01</lastmod></url>
+<url><loc>https://maansijain.com/workshops/draw-otherwise/</loc><lastmod>2026-10-01</lastmod><image:image><image:loc>https://cdn.getyourguide.com/image/format=auto%2Cfit=crop%2Cgravity=auto%2Cquality=70%2Cwidth=1240%2Cheight=800%2Cdpr=1/tour_img/42abb23d23fc7b600894805080520125d63109de99f5652dfed40664a760cace.png</image:loc></image:image><image:image><image:loc>https://cdn.getyourguide.com/image/format=auto%2Cfit=crop%2Cgravity=auto%2Cquality=70%2Cwidth=1240%2Cheight=800%2Cdpr=1/tour_img/eec5154ab6035122797b2120c883da343ac572c1584e6ee0ea7056f3f2d2d948.png</image:loc></image:image></url>
+<url><loc>https://maansijain.com/workshops/words-become-art/</loc><lastmod>2026-10-01</lastmod><image:image><image:loc>https://cdn.getyourguide.com/image/format=auto%2Cfit=crop%2Cgravity=auto%2Cquality=70%2Cwidth=1240%2Cheight=800%2Cdpr=1/tour_img/3c53fe567b21cd597ad6f350e05d3bfe6615ad3876ac85262284ae619169be7b.png</image:loc></image:image><image:image><image:loc>https://cdn.getyourguide.com/image/format=auto%2Cfit=crop%2Cgravity=auto%2Cquality=70%2Cwidth=1240%2Cheight=800%2Cdpr=1/tour_img/7e0d724622fa3536e75e8e8904b9dd3af23799bbd24d922f7bdaeaa1edfae97f.png</image:loc></image:image></url>
+<url><loc>https://maansijain.com/workshops/make-the-ordinary-strange/</loc><lastmod>2026-10-01</lastmod><image:image><image:loc>https://cdn.getyourguide.com/image/format=auto%2Cfit=crop%2Cgravity=auto%2Cquality=70%2Cwidth=1240%2Cheight=800%2Cdpr=1/tour_img/a5b1a40824bbd3030de4c29f45b59c40f4cca088f4b00857b2b3862d9e07f562.png</image:loc></image:image><image:image><image:loc>https://cdn.getyourguide.com/image/format=auto%2Cfit=crop%2Cgravity=auto%2Cquality=70%2Cwidth=1240%2Cheight=800%2Cdpr=1/tour_img/2849df221e1e2ab1a0bf8d0108b38b50d045a4df1b80db678562c0f6e245277f.png</image:loc></image:image></url>
+<url><loc>https://maansijain.com/workshops/perform-the-image/</loc><lastmod>2026-10-01</lastmod><image:image><image:loc>https://cdn.getyourguide.com/image/format=auto%2Cfit=crop%2Cgravity=auto%2Cquality=70%2Cwidth=1240%2Cheight=800%2Cdpr=1/tour_img/d3776b93e0462b40347656a765ab61298c5597a06d5dd12f5f42ea231a7e0c61.png</image:loc></image:image><image:image><image:loc>https://cdn.getyourguide.com/image/format=auto%2Cfit=crop%2Cgravity=auto%2Cquality=70%2Cwidth=1240%2Cheight=800%2Cdpr=1/tour_img/e8699e24ba0d2e9dee05cdffec00a4798b54afd5da3f1188be89bbec33415d02.png</image:loc></image:image></url>
 </urlset>
