@@ -1,0 +1,11 @@
+#mj-consent,#mj-privacy-settings{font:14px/1.5 "Helvetica Neue",Helvetica,Arial,sans-serif;color:#111;background:#fff;box-sizing:border-box}
+#mj-consent{position:fixed;z-index:10000;bottom:58px;left:16px;width:min(480px,calc(100% - 32px));max-height:calc(100dvh - 90px);overflow:auto;border:1px solid #111;padding:20px;box-shadow:0 4px 24px #0002}
+#mj-consent[hidden]{display:none!important}
+#mj-consent p{margin:10px 0;font-size:14px;line-height:1.5;color:#111}
+#mj-consent a{color:#111;text-decoration:underline}
+#mj-consent strong{font-size:17px}
+#mj-consent div{display:flex;flex-wrap:wrap;gap:10px}
+#mj-consent button,#mj-privacy-settings{cursor:pointer;border:1px solid #111;padding:10px 14px;background:#fff;color:#111;font:inherit;border-radius:0;letter-spacing:normal;text-transform:none}
+#mj-consent button:hover,#mj-privacy-settings:hover{background:#eee}
+#mj-consent button:focus-visible,#mj-consent a:focus-visible,#mj-privacy-settings:focus-visible{outline:3px solid #c00;outline-offset:3px}
+#mj-privacy-settings{position:fixed;bottom:12px;left:16px;z-index:9999;font-size:12px;padding:7px 10px}
