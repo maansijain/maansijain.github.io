@@ -42,9 +42,10 @@ footer { padding: 20px 40px; display: flex; justify-content: space-between; alig
 .footer-links a { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #aaa; transition: color 0.15s; }
 .footer-links a:hover { color: #111; }
 .archive { border-bottom: 1px solid #111; padding: 40px 40px 48px; }
-.works { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 40px 32px; }
+.works { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 48px 32px; }
 .w-open { display: block; width: 100%; text-align: left; background: none; border: 0; padding: 0; font: inherit; color: inherit; cursor: zoom-in; }
-.w-open img { display: block; width: 100px; height: 100px; object-fit: cover; margin-bottom: 14px; transition: opacity 0.15s; }
+.w-open img { display: block; width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: contain; object-position: left bottom; margin-bottom: 14px; transition: opacity 0.15s; }
+.w-open img[src*="artwork-thumbnails"] { object-fit: none; }
 .w-open:hover img, .w-open:focus-visible img { opacity: 0.7; }
 .w-title { display: block; font-size: 13px; line-height: 1.4; color: #111; }
 .w-meta { display: block; margin-top: 6px; font-size: 11px; line-height: 1.55; color: #888; }
@@ -102,7 +103,7 @@ dialog#viewer::backdrop { background: rgba(255,255,255,0.92); }
   <div class="works">
     <div class="work">
       <button class="w-open" type="button" data-i="0" aria-label="View whose money is it anyway &amp; bet">
-        <img src="/assets/artwork-thumbnails/work_08.jpg" alt="whose money is it anyway &amp; bet, 2025, by maansi jain" width="100" height="100" loading="lazy">
+        <img src="/images/whose-money-anyway.jpg" alt="whose money is it anyway &amp; bet, 2025, by maansi jain" width="100" height="100" loading="lazy">
         <span class="w-title"><em>whose money is it anyway &amp; bet</em>, 2025</span>
         <span class="w-meta">plexiglass, 35mm film; documentation of a beachside casino in Biarritz, France; the artist wondered what money meant<br>200 x 80 cm or 200 x 160 cm</span>
       </button>
@@ -110,7 +111,7 @@ dialog#viewer::backdrop { background: rgba(255,255,255,0.92); }
     </div>
     <div class="work">
       <button class="w-open" type="button" data-i="1" aria-label="View mirror mirror on the wall i-iii">
-        <img src="/assets/artwork-thumbnails/work_14.jpg" alt="mirror mirror on the wall i-iii, 2026, by maansi jain" width="100" height="100" loading="lazy">
+        <img src="/images/works/work_14.jpg" alt="mirror mirror on the wall i-iii, 2026, by maansi jain" width="100" height="100" loading="lazy">
         <span class="w-title"><em>mirror mirror on the wall i-iii</em>, 2026</span>
         <span class="w-meta">plexiglass, 35mm film<br>100 x 100 cm installed (three pieces)</span>
       </button>
@@ -118,7 +119,7 @@ dialog#viewer::backdrop { background: rgba(255,255,255,0.92); }
     </div>
     <div class="work">
       <button class="w-open" type="button" data-i="2" aria-label="View mirror mirror on the wall iv">
-        <img src="/assets/artwork-thumbnails/work_15.jpg" alt="mirror mirror on the wall iv, 2026, by maansi jain" width="100" height="100" loading="lazy">
+        <img src="/images/works/work_15.jpg" alt="mirror mirror on the wall iv, 2026, by maansi jain" width="100" height="100" loading="lazy">
         <span class="w-title"><em>mirror mirror on the wall iv</em>, 2026</span>
         <span class="w-meta">plexiglass, 35mm film<br>20 x 15 cm</span>
       </button>
@@ -126,7 +127,7 @@ dialog#viewer::backdrop { background: rgba(255,255,255,0.92); }
     </div>
     <div class="work">
       <button class="w-open" type="button" data-i="3" aria-label="View ancient scorecard got buzz">
-        <img src="/assets/artwork-thumbnails/work_59.jpg" alt="ancient scorecard got buzz, 2026, by maansi jain" width="100" height="100" loading="lazy">
+        <img src="/images/works/work_59.jpg" alt="ancient scorecard got buzz, 2026, by maansi jain" width="100" height="100" loading="lazy">
         <span class="w-title"><em>ancient scorecard got buzz</em>, 2026</span>
         <span class="w-meta">mixed media sculpture<br>20 x 30 x 5 cm</span>
       </button>
@@ -134,7 +135,7 @@ dialog#viewer::backdrop { background: rgba(255,255,255,0.92); }
     </div>
     <div class="work">
       <button class="w-open" type="button" data-i="4" aria-label="View get out was a film about an experience">
-        <img src="/assets/artwork-thumbnails/work_02.jpg" alt="get out was a film about an experience, 2025, by maansi jain" width="100" height="100" loading="lazy">
+        <img src="/images/works/work_02.jpg" alt="get out was a film about an experience, 2025, by maansi jain" width="100" height="100" loading="lazy">
         <span class="w-title"><em>get out was a film about an experience</em>, 2025</span>
         <span class="w-meta">plexiglass, 35mm film<br>40x50 cm</span>
       </button>
@@ -142,7 +143,7 @@ dialog#viewer::backdrop { background: rgba(255,255,255,0.92); }
     </div>
     <div class="work">
       <button class="w-open" type="button" data-i="5" aria-label="View greenlit helsinki underground, a ghost town capture">
-        <img src="/assets/artwork-thumbnails/work_09.jpg" alt="greenlit helsinki underground, a ghost town capture, 2025, by maansi jain" width="100" height="100" loading="lazy">
+        <img src="/images/works/work_09.jpg" alt="greenlit helsinki underground, a ghost town capture, 2025, by maansi jain" width="100" height="100" loading="lazy">
         <span class="w-title"><em>greenlit helsinki underground, a ghost town capture</em>, 2025</span>
         <span class="w-meta">plexiglass, 35mm film<br>60 x 40 cm</span>
       </button>
@@ -150,7 +151,7 @@ dialog#viewer::backdrop { background: rgba(255,255,255,0.92); }
     </div>
     <div class="work">
       <button class="w-open" type="button" data-i="6" aria-label="View self soothing (retail therapy leftovers exaltation)">
-        <img src="/assets/artwork-thumbnails/work_10.jpg" alt="self soothing (retail therapy leftovers exaltation), 2025, by maansi jain" width="100" height="100" loading="lazy">
+        <img src="/images/works/work_10.jpg" alt="self soothing (retail therapy leftovers exaltation), 2025, by maansi jain" width="100" height="100" loading="lazy">
         <span class="w-title"><em>self soothing (retail therapy leftovers exaltation)</em>, 2025</span>
         <span class="w-meta">plexiglass, 35mm film<br>21 x 29,7 cm</span>
       </button>
@@ -158,7 +159,7 @@ dialog#viewer::backdrop { background: rgba(255,255,255,0.92); }
     </div>
     <div class="work">
       <button class="w-open" type="button" data-i="7" aria-label="View a tree grew in marseille">
-        <img src="/assets/artwork-thumbnails/work_11.jpg" alt="a tree grew in marseille, 2025, by maansi jain" width="100" height="100" loading="lazy">
+        <img src="/images/works/work_11.jpg" alt="a tree grew in marseille, 2025, by maansi jain" width="100" height="100" loading="lazy">
         <span class="w-title"><em>a tree grew in marseille</em>, 2025</span>
         <span class="w-meta">plexiglass, 35mm film<br>50x75 cm</span>
       </button>
@@ -166,7 +167,7 @@ dialog#viewer::backdrop { background: rgba(255,255,255,0.92); }
     </div>
     <div class="work">
       <button class="w-open" type="button" data-i="8" aria-label="View a hug made out of water i">
-        <img src="/assets/artwork-thumbnails/work_12.jpg" alt="a hug made out of water i, 2025, by maansi jain" width="100" height="100" loading="lazy">
+        <img src="/images/works/work_12.jpg" alt="a hug made out of water i, 2025, by maansi jain" width="100" height="100" loading="lazy">
         <span class="w-title"><em>a hug made out of water i</em>, 2025</span>
         <span class="w-meta">plexiglass, 35mm film<br>20x30 cm</span>
       </button>
@@ -182,7 +183,7 @@ dialog#viewer::backdrop { background: rgba(255,255,255,0.92); }
     </div>
     <div class="work">
       <button class="w-open" type="button" data-i="10" aria-label="View mirror mirror on the wall i-iv">
-        <img src="/assets/artwork-thumbnails/work_16.jpg" alt="mirror mirror on the wall i-iv, 2025, by maansi jain" width="100" height="100" loading="lazy">
+        <img src="/images/works/work_16.jpg" alt="mirror mirror on the wall i-iv, 2025, by maansi jain" width="100" height="100" loading="lazy">
         <span class="w-title"><em>mirror mirror on the wall i-iv</em>, 2025</span>
         <span class="w-meta">plexiglass, 35mm film<br>200 x 150 cm installed (four pieces)</span>
       </button>
@@ -190,7 +191,7 @@ dialog#viewer::backdrop { background: rgba(255,255,255,0.92); }
     </div>
     <div class="work">
       <button class="w-open" type="button" data-i="11" aria-label="View tell them it&#x27;s private tn (gatekeepers r not curators)">
-        <img src="/assets/artwork-thumbnails/work_06.jpg" alt="tell them it&#x27;s private tn (gatekeepers r not curators), 2024, by maansi jain" width="100" height="100" loading="lazy">
+        <img src="/images/works/work_06.jpg" alt="tell them it&#x27;s private tn (gatekeepers r not curators), 2024, by maansi jain" width="100" height="100" loading="lazy">
         <span class="w-title"><em>tell them it&#x27;s private tn (gatekeepers r not curators)</em>, 2024</span>
         <span class="w-meta">plexiglass, 35mm film<br>100 x 80 cm</span>
       </button>
@@ -198,7 +199,7 @@ dialog#viewer::backdrop { background: rgba(255,255,255,0.92); }
     </div>
     <div class="work">
       <button class="w-open" type="button" data-i="12" aria-label="View raw innard style custom carpentry— surface pictured">
-        <img src="/assets/artwork-thumbnails/work_01.jpg" alt="raw innard style custom carpentry— surface pictured, 2020, by maansi jain" width="100" height="100" loading="lazy">
+        <img src="/images/raw-innard-carpentry.jpg" alt="raw innard style custom carpentry— surface pictured, 2020, by maansi jain" width="100" height="100" loading="lazy">
         <span class="w-title"><em>raw innard style custom carpentry— surface pictured</em>, 2020</span>
         <span class="w-meta">plexiglass, 35mm film<br>20x30 cm</span>
       </button>
@@ -206,7 +207,7 @@ dialog#viewer::backdrop { background: rgba(255,255,255,0.92); }
     </div>
     <div class="work">
       <button class="w-open" type="button" data-i="13" aria-label="View i&#x27;ll think about it tomorrow">
-        <img src="/assets/artwork-thumbnails/work_03.jpg" alt="i&#x27;ll think about it tomorrow, 2020, by maansi jain" width="100" height="100" loading="lazy">
+        <img src="/images/ill-think-about-it-tomorrow.jpg" alt="i&#x27;ll think about it tomorrow, 2020, by maansi jain" width="100" height="100" loading="lazy">
         <span class="w-title"><em>i&#x27;ll think about it tomorrow</em>, 2020</span>
         <span class="w-meta">plexiglass, 35mm film<br>20x30 cm</span>
       </button>
@@ -214,7 +215,7 @@ dialog#viewer::backdrop { background: rgba(255,255,255,0.92); }
     </div>
     <div class="work">
       <button class="w-open" type="button" data-i="14" aria-label="View no we’re going elsewhere">
-        <img src="/assets/artwork-thumbnails/work_56.jpg" alt="no we’re going elsewhere, 2020, by maansi jain" width="100" height="100" loading="lazy">
+        <img src="/images/no-we-going-elsewhere.jpg.PNG" alt="no we’re going elsewhere, 2020, by maansi jain" width="100" height="100" loading="lazy">
         <span class="w-title"><em>no we’re going elsewhere</em>, 2020</span>
         <span class="w-meta">hand-warped plexiglass, 35mm film, software<br>20 x 30 cm</span>
       </button>
@@ -222,7 +223,7 @@ dialog#viewer::backdrop { background: rgba(255,255,255,0.92); }
     </div>
     <div class="work">
       <button class="w-open" type="button" data-i="15" aria-label="View arms lengths distances and other parallel realities">
-        <img src="/assets/artwork-thumbnails/work_05.jpg" alt="arms lengths distances and other parallel realities, 2019, by maansi jain" width="100" height="100" loading="lazy">
+        <img src="/images/IMG_2186.webp" alt="arms lengths distances and other parallel realities, 2019, by maansi jain" width="100" height="100" loading="lazy">
         <span class="w-title"><em>arms lengths distances and other parallel realities</em>, 2019</span>
         <span class="w-meta">plexiglass, 35mm film<br>50 x 75 cm</span>
       </button>
@@ -238,7 +239,7 @@ dialog#viewer::backdrop { background: rgba(255,255,255,0.92); }
     </div>
     <div class="work">
       <button class="w-open" type="button" data-i="17" aria-label="View no rehashing pain for breakfast">
-        <img src="/assets/artwork-thumbnails/work_57.jpg" alt="no rehashing pain for breakfast, 2025, by maansi jain" width="100" height="100" loading="lazy">
+        <img src="/images/no-rehashing-pain.jpg" alt="no rehashing pain for breakfast, 2025, by maansi jain" width="100" height="100" loading="lazy">
         <span class="w-title"><em>no rehashing pain for breakfast</em>, 2025</span>
         <span class="w-meta">mixed media on handmade khadi paper<br>50x70cm</span>
       </button>
@@ -246,7 +247,7 @@ dialog#viewer::backdrop { background: rgba(255,255,255,0.92); }
     </div>
     <div class="work">
       <button class="w-open" type="button" data-i="18" aria-label="View defunct rupee dance">
-        <img src="/assets/artwork-thumbnails/work_20.jpg" alt="defunct rupee dance, 2025, by maansi jain" width="100" height="100" loading="lazy">
+        <img src="/images/works/work_20.jpg" alt="defunct rupee dance, 2025, by maansi jain" width="100" height="100" loading="lazy">
         <span class="w-title"><em>defunct rupee dance</em>, 2025</span>
         <span class="w-meta">watercolor, oil pastel, on 140 gsm paper<br>21 x 29.7 cm</span>
       </button>
@@ -254,7 +255,7 @@ dialog#viewer::backdrop { background: rgba(255,255,255,0.92); }
     </div>
     <div class="work">
       <button class="w-open" type="button" data-i="19" aria-label="View das umfeld (one day)">
-        <img src="/assets/artwork-thumbnails/work_21.jpg" alt="das umfeld (one day), 2025, by maansi jain" width="100" height="100" loading="lazy">
+        <img src="/images/works/work_21.jpg" alt="das umfeld (one day), 2025, by maansi jain" width="100" height="100" loading="lazy">
         <span class="w-title"><em>das umfeld (one day)</em>, 2025</span>
         <span class="w-meta">Oil pastel, on 90 gsm paper<br>9 x 13 cm</span>
       </button>
@@ -262,7 +263,7 @@ dialog#viewer::backdrop { background: rgba(255,255,255,0.92); }
     </div>
     <div class="work">
       <button class="w-open" type="button" data-i="20" aria-label="View emotional mathematics (a proof)">
-        <img src="/assets/artwork-thumbnails/work_27.jpg" alt="emotional mathematics (a proof), 2025, by maansi jain" width="100" height="100" loading="lazy">
+        <img src="/images/works/work_27.jpg" alt="emotional mathematics (a proof), 2025, by maansi jain" width="100" height="100" loading="lazy">
         <span class="w-title"><em>emotional mathematics (a proof)</em>, 2025</span>
         <span class="w-meta">watercolor, ink, on 140 gsm paper<br>21 x 29.7 cm</span>
       </button>
@@ -270,7 +271,7 @@ dialog#viewer::backdrop { background: rgba(255,255,255,0.92); }
     </div>
     <div class="work">
       <button class="w-open" type="button" data-i="21" aria-label="View home">
-        <img src="/assets/artwork-thumbnails/work_29.jpg" alt="home, 2025, by maansi jain" width="100" height="100" loading="lazy">
+        <img src="/images/works/work_29.jpg" alt="home, 2025, by maansi jain" width="100" height="100" loading="lazy">
         <span class="w-title"><em>home</em>, 2025</span>
         <span class="w-meta">watercolor, ink, oil pastel, 90gsm indian blue craft paper<br>21 x 29.7 cm</span>
       </button>
@@ -278,7 +279,7 @@ dialog#viewer::backdrop { background: rgba(255,255,255,0.92); }
     </div>
     <div class="work">
       <button class="w-open" type="button" data-i="22" aria-label="View studio">
-        <img src="/assets/artwork-thumbnails/work_32.jpg" alt="studio, 2025, by maansi jain" width="100" height="100" loading="lazy">
+        <img src="/images/works/work_32.jpg" alt="studio, 2025, by maansi jain" width="100" height="100" loading="lazy">
         <span class="w-title"><em>studio</em>, 2025</span>
         <span class="w-meta">watercolor, ink, on 210 gsm indian paper<br>29.7 x 42 cm</span>
       </button>
@@ -286,7 +287,7 @@ dialog#viewer::backdrop { background: rgba(255,255,255,0.92); }
     </div>
     <div class="work">
       <button class="w-open" type="button" data-i="23" aria-label="View east village silhouettes">
-        <img src="/assets/artwork-thumbnails/work_34.jpg" alt="east village silhouettes, 2025, by maansi jain" width="100" height="100" loading="lazy">
+        <img src="/images/works/work_34.jpg" alt="east village silhouettes, 2025, by maansi jain" width="100" height="100" loading="lazy">
         <span class="w-title"><em>east village silhouettes</em>, 2025</span>
         <span class="w-meta">watercolor, ink, on 90 gsm paper<br>9 x 13 cm</span>
       </button>
@@ -294,7 +295,7 @@ dialog#viewer::backdrop { background: rgba(255,255,255,0.92); }
     </div>
     <div class="work">
       <button class="w-open" type="button" data-i="24" aria-label="View Delhi is a city in upstate New York (too)">
-        <img src="/assets/artwork-thumbnails/work_40.jpg" alt="Delhi is a city in upstate New York (too), 2025, by maansi jain" width="100" height="100" loading="lazy">
+        <img src="/images/works/work_40.jpg" alt="Delhi is a city in upstate New York (too), 2025, by maansi jain" width="100" height="100" loading="lazy">
         <span class="w-title"><em>Delhi is a city in upstate New York (too)</em>, 2025</span>
         <span class="w-meta">watercolor, ink, on 200 gsm indian paper<br>29.7 x 42 cm</span>
       </button>
@@ -302,7 +303,7 @@ dialog#viewer::backdrop { background: rgba(255,255,255,0.92); }
     </div>
     <div class="work">
       <button class="w-open" type="button" data-i="25" aria-label="View eucalyptus tree canopy over a lavender field">
-        <img src="/assets/artwork-thumbnails/work_48.jpg" alt="eucalyptus tree canopy over a lavender field, 2025, by maansi jain" width="100" height="100" loading="lazy">
+        <img src="/images/works/work_48.jpg" alt="eucalyptus tree canopy over a lavender field, 2025, by maansi jain" width="100" height="100" loading="lazy">
         <span class="w-title"><em>eucalyptus tree canopy over a lavender field</em>, 2025</span>
         <span class="w-meta">watercolor, ink<br>29.7 x 42 cm</span>
       </button>
@@ -310,7 +311,7 @@ dialog#viewer::backdrop { background: rgba(255,255,255,0.92); }
     </div>
     <div class="work">
       <button class="w-open" type="button" data-i="26" aria-label="View doing indian geometric proofs despite unnecessary euclidian complexity indoctrination">
-        <img src="/assets/artwork-thumbnails/work_51.jpg" alt="doing indian geometric proofs despite unnecessary euclidian complexity indoctrination, 2025, by maansi jain" width="100" height="100" loading="lazy">
+        <img src="/images/works/work_51.jpg" alt="doing indian geometric proofs despite unnecessary euclidian complexity indoctrination, 2025, by maansi jain" width="100" height="100" loading="lazy">
         <span class="w-title"><em>doing indian geometric proofs despite unnecessary euclidian complexity indoctrination</em>, 2025</span>
         <span class="w-meta">watercolor and ink on paper<br>21 x 29.7 cm</span>
       </button>
@@ -318,7 +319,7 @@ dialog#viewer::backdrop { background: rgba(255,255,255,0.92); }
     </div>
     <div class="work">
       <button class="w-open" type="button" data-i="27" aria-label="View “a pain relief/color study inside the designers den circa">
-        <img src="/assets/artwork-thumbnails/work_67.jpg" alt="“a pain relief/color study inside the designers den circa, 2025, by maansi jain" width="100" height="100" loading="lazy">
+        <img src="/images/works/work_67.jpg" alt="“a pain relief/color study inside the designers den circa, 2025, by maansi jain" width="100" height="100" loading="lazy">
         <span class="w-title"><em>“a pain relief/color study inside the designers den circa</em>, 2025</span>
         <span class="w-meta">mixed media on paper<br>approx. 150 cm x 200 cm</span>
       </button>
@@ -326,7 +327,7 @@ dialog#viewer::backdrop { background: rgba(255,255,255,0.92); }
     </div>
     <div class="work">
       <button class="w-open" type="button" data-i="28" aria-label="View MP Chaturvedi’s designers den circa 1984 delhi">
-        <img src="/assets/artwork-thumbnails/work_17.jpg" alt="MP Chaturvedi’s designers den circa 1984 delhi, 2024, by maansi jain" width="100" height="100" loading="lazy">
+        <img src="/images/works/work_17.jpg" alt="MP Chaturvedi’s designers den circa 1984 delhi, 2024, by maansi jain" width="100" height="100" loading="lazy">
         <span class="w-title"><em>MP Chaturvedi’s designers den circa 1984 delhi</em>, 2024</span>
         <span class="w-meta">watercolor, ink, oil pastel<br>21 x 29.7 cm</span>
       </button>
@@ -334,7 +335,7 @@ dialog#viewer::backdrop { background: rgba(255,255,255,0.92); }
     </div>
     <div class="work">
       <button class="w-open" type="button" data-i="29" aria-label="View delhi girls have parisian pastimes too">
-        <img src="/assets/artwork-thumbnails/work_18.jpg" alt="delhi girls have parisian pastimes too, 2024, by maansi jain" width="100" height="100" loading="lazy">
+        <img src="/images/works/work_18.jpg" alt="delhi girls have parisian pastimes too, 2024, by maansi jain" width="100" height="100" loading="lazy">
         <span class="w-title"><em>delhi girls have parisian pastimes too</em>, 2024</span>
         <span class="w-meta">watercolor, ink<br>10x15 cm</span>
       </button>
@@ -342,7 +343,7 @@ dialog#viewer::backdrop { background: rgba(255,255,255,0.92); }
     </div>
     <div class="work">
       <button class="w-open" type="button" data-i="30" aria-label="View ancient found scorecard; game unknown">
-        <img src="/assets/artwork-thumbnails/work_19.jpg" alt="ancient found scorecard; game unknown, 2024, by maansi jain" width="100" height="100" loading="lazy">
+        <img src="/images/works/work_19.jpg" alt="ancient found scorecard; game unknown, 2024, by maansi jain" width="100" height="100" loading="lazy">
         <span class="w-title"><em>ancient found scorecard; game unknown</em>, 2024</span>
         <span class="w-meta">watercolor, ink<br>10x15 cm</span>
       </button>
@@ -350,7 +351,7 @@ dialog#viewer::backdrop { background: rgba(255,255,255,0.92); }
     </div>
     <div class="work">
       <button class="w-open" type="button" data-i="31" aria-label="View friend dinners with roasts">
-        <img src="/assets/artwork-thumbnails/work_22.jpg" alt="friend dinners with roasts, 2024, by maansi jain" width="100" height="100" loading="lazy">
+        <img src="/images/works/work_22.jpg" alt="friend dinners with roasts, 2024, by maansi jain" width="100" height="100" loading="lazy">
         <span class="w-title"><em>friend dinners with roasts</em>, 2024</span>
         <span class="w-meta">oil pastel, watercolor, on 210 gsm paper<br>29.7 x 42 cm</span>
       </button>
@@ -358,7 +359,7 @@ dialog#viewer::backdrop { background: rgba(255,255,255,0.92); }
     </div>
     <div class="work">
       <button class="w-open" type="button" data-i="32" aria-label="View how romantic is an always happy fam asked tolstoy">
-        <img src="/assets/artwork-thumbnails/work_25.jpg" alt="how romantic is an always happy fam asked tolstoy, 2024, by maansi jain" width="100" height="100" loading="lazy">
+        <img src="/images/works/work_25.jpg" alt="how romantic is an always happy fam asked tolstoy, 2024, by maansi jain" width="100" height="100" loading="lazy">
         <span class="w-title"><em>how romantic is an always happy fam asked tolstoy</em>, 2024</span>
         <span class="w-meta">watercolor, ink<br>10x15 cm</span>
       </button>
@@ -366,7 +367,7 @@ dialog#viewer::backdrop { background: rgba(255,255,255,0.92); }
     </div>
     <div class="work">
       <button class="w-open" type="button" data-i="33" aria-label="View imagine having no relationship to time but nostalgia, how heartbreaking">
-        <img src="/assets/artwork-thumbnails/work_26.jpg" alt="imagine having no relationship to time but nostalgia, how heartbreaking, 2024, by maansi jain" width="100" height="100" loading="lazy">
+        <img src="/images/works/work_26.jpg" alt="imagine having no relationship to time but nostalgia, how heartbreaking, 2024, by maansi jain" width="100" height="100" loading="lazy">
         <span class="w-title"><em>imagine having no relationship to time but nostalgia, how heartbreaking</em>, 2024</span>
         <span class="w-meta">watercolor, ink<br>10x15 cm</span>
       </button>
@@ -374,7 +375,7 @@ dialog#viewer::backdrop { background: rgba(255,255,255,0.92); }
     </div>
     <div class="work">
       <button class="w-open" type="button" data-i="34" aria-label="View tfw she’s the forest and the trees (a star is reborn)">
-        <img src="/assets/artwork-thumbnails/work_28.jpg" alt="tfw she’s the forest and the trees (a star is reborn), 2024, by maansi jain" width="100" height="100" loading="lazy">
+        <img src="/images/works/work_28.jpg" alt="tfw she’s the forest and the trees (a star is reborn), 2024, by maansi jain" width="100" height="100" loading="lazy">
         <span class="w-title"><em>tfw she’s the forest and the trees (a star is reborn)</em>, 2024</span>
         <span class="w-meta">watercolor, oil pastel, on 200 gsm indian paper<br>29.7 x 42 cm</span>
       </button>
@@ -382,7 +383,7 @@ dialog#viewer::backdrop { background: rgba(255,255,255,0.92); }
     </div>
     <div class="work">
       <button class="w-open" type="button" data-i="35" aria-label="View parisian childhood innocence (a nude friend)">
-        <img src="/assets/artwork-thumbnails/work_30.jpg" alt="parisian childhood innocence (a nude friend), 2024, by maansi jain" width="100" height="100" loading="lazy">
+        <img src="/images/works/work_30.jpg" alt="parisian childhood innocence (a nude friend), 2024, by maansi jain" width="100" height="100" loading="lazy">
         <span class="w-title"><em>parisian childhood innocence (a nude friend)</em>, 2024</span>
         <span class="w-meta">watercolor, oil pastel, on 200 gsm indian paper<br>29.7 x 42 cm</span>
       </button>
@@ -390,7 +391,7 @@ dialog#viewer::backdrop { background: rgba(255,255,255,0.92); }
     </div>
     <div class="work">
       <button class="w-open" type="button" data-i="36" aria-label="View tfw all drawing is abstraction">
-        <img src="/assets/artwork-thumbnails/work_31.jpg" alt="tfw all drawing is abstraction, 2024, by maansi jain" width="100" height="100" loading="lazy">
+        <img src="/images/works/work_31.jpg" alt="tfw all drawing is abstraction, 2024, by maansi jain" width="100" height="100" loading="lazy">
         <span class="w-title"><em>tfw all drawing is abstraction</em>, 2024</span>
         <span class="w-meta">watercolor, oil pastel, on 210 gsm indian paper<br>29.7 x 42 cm</span>
       </button>
@@ -398,7 +399,7 @@ dialog#viewer::backdrop { background: rgba(255,255,255,0.92); }
     </div>
     <div class="work">
       <button class="w-open" type="button" data-i="37" aria-label="View feminine sports lovers share a beverage">
-        <img src="/assets/artwork-thumbnails/work_35.jpg" alt="feminine sports lovers share a beverage, 2024, by maansi jain" width="100" height="100" loading="lazy">
+        <img src="/images/works/work_35.jpg" alt="feminine sports lovers share a beverage, 2024, by maansi jain" width="100" height="100" loading="lazy">
         <span class="w-title"><em>feminine sports lovers share a beverage</em>, 2024</span>
         <span class="w-meta">watercolor, ink<br>10x15 cm</span>
       </button>
@@ -406,7 +407,7 @@ dialog#viewer::backdrop { background: rgba(255,255,255,0.92); }
     </div>
     <div class="work">
       <button class="w-open" type="button" data-i="38" aria-label="View gallery members do evening chat">
-        <img src="/assets/artwork-thumbnails/work_37.jpg" alt="gallery members do evening chat, 2024, by maansi jain" width="100" height="100" loading="lazy">
+        <img src="/images/works/work_37.jpg" alt="gallery members do evening chat, 2024, by maansi jain" width="100" height="100" loading="lazy">
         <span class="w-title"><em>gallery members do evening chat</em>, 2024</span>
         <span class="w-meta">watercolor, ink<br>10x15 cm</span>
       </button>
@@ -414,7 +415,7 @@ dialog#viewer::backdrop { background: rgba(255,255,255,0.92); }
     </div>
     <div class="work">
       <button class="w-open" type="button" data-i="39" aria-label="View family in kashmir study in watercolor and ink">
-        <img src="/assets/artwork-thumbnails/work_38.jpg" alt="family in kashmir study in watercolor and ink, 2024, by maansi jain" width="100" height="100" loading="lazy">
+        <img src="/images/works/work_38.jpg" alt="family in kashmir study in watercolor and ink, 2024, by maansi jain" width="100" height="100" loading="lazy">
         <span class="w-title"><em>family in kashmir study in watercolor and ink</em>, 2024</span>
         <span class="w-meta">watercolor and ink on paper<br>10x15 cm</span>
       </button>
@@ -422,7 +423,7 @@ dialog#viewer::backdrop { background: rgba(255,255,255,0.92); }
     </div>
     <div class="work">
       <button class="w-open" type="button" data-i="40" aria-label="View keeping up with only the kardashians would be mb cuter than all the news">
-        <img src="/assets/artwork-thumbnails/work_39.jpg" alt="keeping up with only the kardashians would be mb cuter than all the news, 2024, by maansi jain" width="100" height="100" loading="lazy">
+        <img src="/images/works/work_39.jpg" alt="keeping up with only the kardashians would be mb cuter than all the news, 2024, by maansi jain" width="100" height="100" loading="lazy">
         <span class="w-title"><em>keeping up with only the kardashians would be mb cuter than all the news</em>, 2024</span>
         <span class="w-meta">watercolor, ink<br>10x15 cm</span>
       </button>
@@ -430,7 +431,7 @@ dialog#viewer::backdrop { background: rgba(255,255,255,0.92); }
     </div>
     <div class="work">
       <button class="w-open" type="button" data-i="41" aria-label="View ready for his close up or at least a t shirt biz">
-        <img src="/assets/artwork-thumbnails/work_41.jpg" alt="ready for his close up or at least a t shirt biz, 2024, by maansi jain" width="100" height="100" loading="lazy">
+        <img src="/images/works/work_41.jpg" alt="ready for his close up or at least a t shirt biz, 2024, by maansi jain" width="100" height="100" loading="lazy">
         <span class="w-title"><em>ready for his close up or at least a t shirt biz</em>, 2024</span>
         <span class="w-meta">watercolor, ink<br>10x15 cm</span>
       </button>
@@ -438,7 +439,7 @@ dialog#viewer::backdrop { background: rgba(255,255,255,0.92); }
     </div>
     <div class="work">
       <button class="w-open" type="button" data-i="42" aria-label="View business casual">
-        <img src="/assets/artwork-thumbnails/work_42.jpg" alt="business casual, 2024, by maansi jain" width="100" height="100" loading="lazy">
+        <img src="/images/works/work_42.jpg" alt="business casual, 2024, by maansi jain" width="100" height="100" loading="lazy">
         <span class="w-title"><em>business casual</em>, 2024</span>
         <span class="w-meta">watercolor, ink<br>10x15 cm</span>
       </button>
@@ -446,7 +447,7 @@ dialog#viewer::backdrop { background: rgba(255,255,255,0.92); }
     </div>
     <div class="work">
       <button class="w-open" type="button" data-i="43" aria-label="View olivia and veronica hung out with me on the airplane to delhi">
-        <img src="/assets/artwork-thumbnails/work_43.jpg" alt="olivia and veronica hung out with me on the airplane to delhi, 2024, by maansi jain" width="100" height="100" loading="lazy">
+        <img src="/images/works/work_43.jpg" alt="olivia and veronica hung out with me on the airplane to delhi, 2024, by maansi jain" width="100" height="100" loading="lazy">
         <span class="w-title"><em>olivia and veronica hung out with me on the airplane to delhi</em>, 2024</span>
         <span class="w-meta">watercolor, ink<br>10x15 cm</span>
       </button>
@@ -454,7 +455,7 @@ dialog#viewer::backdrop { background: rgba(255,255,255,0.92); }
     </div>
     <div class="work">
       <button class="w-open" type="button" data-i="44" aria-label="View limbic system reset vibes">
-        <img src="/assets/artwork-thumbnails/work_44.jpg" alt="limbic system reset vibes, 2024, by maansi jain" width="100" height="100" loading="lazy">
+        <img src="/images/works/work_44.jpg" alt="limbic system reset vibes, 2024, by maansi jain" width="100" height="100" loading="lazy">
         <span class="w-title"><em>limbic system reset vibes</em>, 2024</span>
         <span class="w-meta">watercolor, ink<br>10x15 cm</span>
       </button>
@@ -462,7 +463,7 @@ dialog#viewer::backdrop { background: rgba(255,255,255,0.92); }
     </div>
     <div class="work">
       <button class="w-open" type="button" data-i="45" aria-label="View Kam and Yam said Yum">
-        <img src="/assets/artwork-thumbnails/work_45.jpg" alt="Kam and Yam said Yum, 2024, by maansi jain" width="100" height="100" loading="lazy">
+        <img src="/images/works/work_45.jpg" alt="Kam and Yam said Yum, 2024, by maansi jain" width="100" height="100" loading="lazy">
         <span class="w-title"><em>Kam and Yam said Yum</em>, 2024</span>
         <span class="w-meta">watercolor, ink<br>10x15 cm</span>
       </button>
@@ -470,7 +471,7 @@ dialog#viewer::backdrop { background: rgba(255,255,255,0.92); }
     </div>
     <div class="work">
       <button class="w-open" type="button" data-i="46" aria-label="View navi was short for navigation to india via the mouth">
-        <img src="/assets/artwork-thumbnails/work_46.jpg" alt="navi was short for navigation to india via the mouth, 2024, by maansi jain" width="100" height="100" loading="lazy">
+        <img src="/images/works/work_46.jpg" alt="navi was short for navigation to india via the mouth, 2024, by maansi jain" width="100" height="100" loading="lazy">
         <span class="w-title"><em>navi was short for navigation to india via the mouth</em>, 2024</span>
         <span class="w-meta">watercolor, ink<br>10x15 cm</span>
       </button>
@@ -478,7 +479,7 @@ dialog#viewer::backdrop { background: rgba(255,255,255,0.92); }
     </div>
     <div class="work">
       <button class="w-open" type="button" data-i="47" aria-label="View society is a concept">
-        <img src="/assets/artwork-thumbnails/work_47.jpg" alt="society is a concept, 2024, by maansi jain" width="100" height="100" loading="lazy">
+        <img src="/images/works/work_47.jpg" alt="society is a concept, 2024, by maansi jain" width="100" height="100" loading="lazy">
         <span class="w-title"><em>society is a concept</em>, 2024</span>
         <span class="w-meta">watercolor, ink<br>10x15 cm</span>
       </button>
@@ -486,7 +487,7 @@ dialog#viewer::backdrop { background: rgba(255,255,255,0.92); }
     </div>
     <div class="work">
       <button class="w-open" type="button" data-i="48" aria-label="View um, no (!)">
-        <img src="/assets/artwork-thumbnails/work_49.jpg" alt="um, no (!), 2024, by maansi jain" width="100" height="100" loading="lazy">
+        <img src="/images/works/work_49.jpg" alt="um, no (!), 2024, by maansi jain" width="100" height="100" loading="lazy">
         <span class="w-title"><em>um, no (!)</em>, 2024</span>
         <span class="w-meta">watercolor, ink<br>10x15 cm</span>
       </button>
@@ -494,7 +495,7 @@ dialog#viewer::backdrop { background: rgba(255,255,255,0.92); }
     </div>
     <div class="work">
       <button class="w-open" type="button" data-i="49" aria-label="View a polite crowd in bombay went far out and to the left">
-        <img src="/assets/artwork-thumbnails/work_50.jpg" alt="a polite crowd in bombay went far out and to the left, 2024, by maansi jain" width="100" height="100" loading="lazy">
+        <img src="/images/works/work_50.jpg" alt="a polite crowd in bombay went far out and to the left, 2024, by maansi jain" width="100" height="100" loading="lazy">
         <span class="w-title"><em>a polite crowd in bombay went far out and to the left</em>, 2024</span>
         <span class="w-meta">watercolor, ink, oil pastel on Indian craft paper 90 gsm<br>21 x 29.7 cm</span>
       </button>
@@ -502,7 +503,7 @@ dialog#viewer::backdrop { background: rgba(255,255,255,0.92); }
     </div>
     <div class="work">
       <button class="w-open" type="button" data-i="50" aria-label="View tinned fish and apfel schorle in noida">
-        <img src="/assets/artwork-thumbnails/work_52.jpg" alt="tinned fish and apfel schorle in noida, 2024, by maansi jain" width="100" height="100" loading="lazy">
+        <img src="/images/works/work_52.jpg" alt="tinned fish and apfel schorle in noida, 2024, by maansi jain" width="100" height="100" loading="lazy">
         <span class="w-title"><em>tinned fish and apfel schorle in noida</em>, 2024</span>
         <span class="w-meta">watercolor, oil pastel, 140gsm hahnemühle<br>10x15 cm</span>
       </button>
@@ -510,7 +511,7 @@ dialog#viewer::backdrop { background: rgba(255,255,255,0.92); }
     </div>
     <div class="work">
       <button class="w-open" type="button" data-i="51" aria-label="View biarritz has garages too">
-        <img src="/assets/artwork-thumbnails/work_55.jpg" alt="biarritz has garages too, 2024, by maansi jain" width="100" height="100" loading="lazy">
+        <img src="/images/works/work_55.jpg" alt="biarritz has garages too, 2024, by maansi jain" width="100" height="100" loading="lazy">
         <span class="w-title"><em>biarritz has garages too</em>, 2024</span>
         <span class="w-meta">watercolor, ink, on 300 gsm indian paper<br>21 x 29.7 cm</span>
       </button>
@@ -518,7 +519,7 @@ dialog#viewer::backdrop { background: rgba(255,255,255,0.92); }
     </div>
     <div class="work">
       <button class="w-open" type="button" data-i="52" aria-label="View gruel for galentines">
-        <img src="/assets/artwork-thumbnails/work_54.jpg" alt="gruel for galentines, 2023, by maansi jain" width="100" height="100" loading="lazy">
+        <img src="/images/works/work_54.jpg" alt="gruel for galentines, 2023, by maansi jain" width="100" height="100" loading="lazy">
         <span class="w-title"><em>gruel for galentines</em>, 2023</span>
         <span class="w-meta">watercolor, ink, on 200 gsm indian paper<br>29.7 x 42 cm</span>
       </button>
@@ -526,7 +527,7 @@ dialog#viewer::backdrop { background: rgba(255,255,255,0.92); }
     </div>
     <div class="work">
       <button class="w-open" type="button" data-i="53" aria-label="View see if u can read my mind">
-        <img src="/assets/artwork-thumbnails/work_53.jpg" alt="see if u can read my mind, 2014, by maansi jain" width="100" height="100" loading="lazy">
+        <img src="/images/works/work_53.jpg" alt="see if u can read my mind, 2014, by maansi jain" width="100" height="100" loading="lazy">
         <span class="w-title"><em>see if u can read my mind</em>, 2014</span>
         <span class="w-meta">watercolor, ink<br>21 x 29.7 cm</span>
       </button>
@@ -534,7 +535,7 @@ dialog#viewer::backdrop { background: rgba(255,255,255,0.92); }
     </div>
     <div class="work">
       <button class="w-open" type="button" data-i="54" aria-label="View the only living swimmer in mumbai">
-        <img src="/assets/artwork-thumbnails/work_23.jpg" alt="the only living swimmer in mumbai, 2025, by maansi jain" width="100" height="100" loading="lazy">
+        <img src="/images/only-living-swimmer-mumbai.jpg" alt="the only living swimmer in mumbai, 2025, by maansi jain" width="100" height="100" loading="lazy">
         <span class="w-title"><em>the only living swimmer in mumbai</em>, 2025</span>
         <span class="w-meta">watercolor, ink, oil pastel, acrylic canvas<br>60 x 80cm</span>
       </button>
@@ -542,7 +543,7 @@ dialog#viewer::backdrop { background: rgba(255,255,255,0.92); }
     </div>
     <div class="work">
       <button class="w-open" type="button" data-i="55" aria-label="View gaze">
-        <img src="/assets/artwork-thumbnails/work_36.jpg" alt="gaze, 2025, by maansi jain" width="100" height="100" loading="lazy">
+        <img src="/images/gaze.jpg" alt="gaze, 2025, by maansi jain" width="100" height="100" loading="lazy">
         <span class="w-title"><em>gaze</em>, 2025</span>
         <span class="w-meta">watercolor, ink, oil pastel, acrylic<br>30 x 40 cm</span>
       </button>
@@ -550,7 +551,7 @@ dialog#viewer::backdrop { background: rgba(255,255,255,0.92); }
     </div>
     <div class="work">
       <button class="w-open" type="button" data-i="56" aria-label="View timeless meetings at the watering hole">
-        <img src="/assets/artwork-thumbnails/work_33.jpg" alt="timeless meetings at the watering hole, 2025, by maansi jain" width="100" height="100" loading="lazy">
+        <img src="/images/works/work_33.jpg" alt="timeless meetings at the watering hole, 2025, by maansi jain" width="100" height="100" loading="lazy">
         <span class="w-title"><em>timeless meetings at the watering hole</em>, 2025</span>
         <span class="w-meta">watercolor, ink, oil pastel, acrylic on canvas<br>60 x 80 cm</span>
       </button>
@@ -558,7 +559,7 @@ dialog#viewer::backdrop { background: rgba(255,255,255,0.92); }
     </div>
     <div class="work">
       <button class="w-open" type="button" data-i="57" aria-label="View club kitchen">
-        <img src="/assets/artwork-thumbnails/work_24.jpg" alt="club kitchen, 2024, by maansi jain" width="100" height="100" loading="lazy">
+        <img src="/images/club-kitchen.jpg" alt="club kitchen, 2024, by maansi jain" width="100" height="100" loading="lazy">
         <span class="w-title"><em>club kitchen</em>, 2024</span>
         <span class="w-meta">watercolor, ink, oil pastel, acrylic on canvas<br>40 x 60 cm</span>
       </button>
@@ -566,7 +567,7 @@ dialog#viewer::backdrop { background: rgba(255,255,255,0.92); }
     </div>
     <div class="work">
       <button class="w-open" type="button" data-i="58" aria-label="View infinite/abundant nature and the deionizing balcony view">
-        <img src="/assets/artwork-thumbnails/work_04.jpg" alt="infinite/abundant nature and the deionizing balcony view, 2024, by maansi jain" width="100" height="100" loading="lazy">
+        <img src="/images/infinite-abundant-nature.jpg" alt="infinite/abundant nature and the deionizing balcony view, 2024, by maansi jain" width="100" height="100" loading="lazy">
         <span class="w-title"><em>infinite/abundant nature and the deionizing balcony view</em>, 2024</span>
         <span class="w-meta">ink, acrylic, analog photography on canvas<br>120x80 cm</span>
       </button>
@@ -574,7 +575,7 @@ dialog#viewer::backdrop { background: rgba(255,255,255,0.92); }
     </div>
     <div class="work">
       <button class="w-open" type="button" data-i="59" aria-label="View brb: going to dance in berlin">
-        <img src="/assets/artwork-thumbnails/work_64.jpg" alt="brb: going to dance in berlin, 2023, by maansi jain" width="100" height="100" loading="lazy">
+        <img src="/images/brb-dance-berlin.jpg" alt="brb: going to dance in berlin, 2023, by maansi jain" width="100" height="100" loading="lazy">
         <span class="w-title"><em>brb: going to dance in berlin</em>, 2023</span>
         <span class="w-meta">acrylic and oil pastel on canvas<br>60 x 60 x 4 cm</span>
       </button>
@@ -582,7 +583,7 @@ dialog#viewer::backdrop { background: rgba(255,255,255,0.92); }
     </div>
     <div class="work">
       <button class="w-open" type="button" data-i="60" aria-label="View searching for an open air (chattarpur farmhouse life in delhi)">
-        <img src="/assets/artwork-thumbnails/work_62.jpg" alt="searching for an open air (chattarpur farmhouse life in delhi), 2023, by maansi jain" width="100" height="100" loading="lazy">
+        <img src="/images/searching-open-air.jpg" alt="searching for an open air (chattarpur farmhouse life in delhi), 2023, by maansi jain" width="100" height="100" loading="lazy">
         <span class="w-title"><em>searching for an open air (chattarpur farmhouse life in delhi)</em>, 2023</span>
         <span class="w-meta">mixed media<br>Dimensions available upon request</span>
       </button>
@@ -590,7 +591,7 @@ dialog#viewer::backdrop { background: rgba(255,255,255,0.92); }
     </div>
     <div class="work">
       <button class="w-open" type="button" data-i="61" aria-label="View where am i, we asked the blue dot">
-        <img src="/assets/artwork-thumbnails/work_58.jpg" alt="where am i, we asked the blue dot, 2023, by maansi jain" width="100" height="100" loading="lazy">
+        <img src="/images/where-am-i-blue-dot.jpg" alt="where am i, we asked the blue dot, 2023, by maansi jain" width="100" height="100" loading="lazy">
         <span class="w-title"><em>where am i, we asked the blue dot</em>, 2023</span>
         <span class="w-meta">inkjet print on canvas<br>20 x 30 x 4 cm</span>
       </button>
@@ -598,7 +599,7 @@ dialog#viewer::backdrop { background: rgba(255,255,255,0.92); }
     </div>
     <div class="work">
       <button class="w-open" type="button" data-i="62" aria-label="View Toi, toi-même, et tu brutus">
-        <img src="/assets/artwork-thumbnails/work_60.jpg" alt="Toi, toi-même, et tu brutus, 2023, by maansi jain" width="100" height="100" loading="lazy">
+        <img src="/images/works/work_60.jpg" alt="Toi, toi-même, et tu brutus, 2023, by maansi jain" width="100" height="100" loading="lazy">
         <span class="w-title"><em>Toi, toi-même, et tu brutus</em>, 2023</span>
         <span class="w-meta">Oil pastel and acrylic paint on canvas depicting the artist with themselves in the forest some summers ago. Made during an invitation to the artist beta program for Dalle 2.<br>40 x 40 cm</span>
       </button>
@@ -606,7 +607,7 @@ dialog#viewer::backdrop { background: rgba(255,255,255,0.92); }
     </div>
     <div class="work">
       <button class="w-open" type="button" data-i="63" aria-label="View ice ice bb (pls say ridgewood)">
-        <img src="/assets/artwork-thumbnails/work_63.jpg" alt="ice ice bb (pls say ridgewood), 2023, by maansi jain" width="100" height="100" loading="lazy">
+        <img src="/images/works/work_63.jpg" alt="ice ice bb (pls say ridgewood), 2023, by maansi jain" width="100" height="100" loading="lazy">
         <span class="w-title"><em>ice ice bb (pls say ridgewood)</em>, 2023</span>
         <span class="w-meta">Lidar scan, oil pastel, mixed media on canvas<br>60 x 80 cm</span>
       </button>
@@ -614,7 +615,7 @@ dialog#viewer::backdrop { background: rgba(255,255,255,0.92); }
     </div>
     <div class="work">
       <button class="w-open" type="button" data-i="64" aria-label="View Drinking distilled water for the car for the machine in me">
-        <img src="/assets/artwork-thumbnails/work_65.jpg" alt="Drinking distilled water for the car for the machine in me, 2023, by maansi jain" width="100" height="100" loading="lazy">
+        <img src="/images/works/work_65.jpg" alt="Drinking distilled water for the car for the machine in me, 2023, by maansi jain" width="100" height="100" loading="lazy">
         <span class="w-title"><em>Drinking distilled water for the car for the machine in me</em>, 2023</span>
         <span class="w-meta">mixed media<br>40 x 40 cm</span>
       </button>
@@ -622,7 +623,7 @@ dialog#viewer::backdrop { background: rgba(255,255,255,0.92); }
     </div>
     <div class="work">
       <button class="w-open" type="button" data-i="65" aria-label="View not all means are machiavellian">
-        <img src="/assets/artwork-thumbnails/work_68.jpg" alt="not all means are machiavellian, 2023, by maansi jain" width="100" height="100" loading="lazy">
+        <img src="/images/works/work_68.jpg" alt="not all means are machiavellian, 2023, by maansi jain" width="100" height="100" loading="lazy">
         <span class="w-title"><em>not all means are machiavellian</em>, 2023</span>
         <span class="w-meta">acrylic, oil pastel, ink on canvas<br>40 x 40 x 4 cm</span>
       </button>
@@ -630,7 +631,7 @@ dialog#viewer::backdrop { background: rgba(255,255,255,0.92); }
     </div>
     <div class="work">
       <button class="w-open" type="button" data-i="66" aria-label="View canal street slurp">
-        <img src="/assets/artwork-thumbnails/work_61.jpg" alt="canal street slurp, 2018, by maansi jain" width="100" height="100" loading="lazy">
+        <img src="/images/works/work_61.jpg" alt="canal street slurp, 2018, by maansi jain" width="100" height="100" loading="lazy">
         <span class="w-title"><em>canal street slurp</em>, 2018</span>
         <span class="w-meta">oil pastel, acrylic, soft pastel on canvas<br>160 x 100 cm</span>
       </button>
@@ -638,7 +639,7 @@ dialog#viewer::backdrop { background: rgba(255,255,255,0.92); }
     </div>
     <div class="work">
       <button class="w-open" type="button" data-i="67" aria-label="View skinny bitch">
-        <img src="/assets/artwork-thumbnails/work_66.jpg" alt="skinny bitch, 2018, by maansi jain" width="100" height="100" loading="lazy">
+        <img src="/images/works/work_66.jpg" alt="skinny bitch, 2018, by maansi jain" width="100" height="100" loading="lazy">
         <span class="w-title"><em>skinny bitch</em>, 2018</span>
         <span class="w-meta">warped analog photograph, artist proof<br>40 x 50 cm</span>
       </button>
