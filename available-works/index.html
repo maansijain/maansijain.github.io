@@ -24,6 +24,7 @@ a { color: inherit; text-decoration: none; }
 .topbar-name { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
 .topbar-right { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #666; display: flex; align-items: center; gap: 28px; }
 .topbar-tab { color: #111; font-weight: 700; border-bottom: 1px solid #111; padding-bottom: 1px; }
+.topbar-tab.is-current { color: #e8321a; border-color: #e8321a; }
 .hero { border-bottom: 1px solid #111; padding: 80px 40px 70px; }
 .hero-headline { font-size: clamp(52px, 9vw, 110px); font-weight: 700; line-height: 0.92; letter-spacing: -0.03em; text-transform: uppercase; }
 .hero-headline span { color: #e8321a; }
@@ -89,6 +90,7 @@ dialog#viewer::backdrop { background: rgba(255,255,255,0.92); }
   <span class="topbar-right">
     <span class="topbar-place">Conceptual Artist — Berlin / Delhi / NYC / Paris</span>
     <a class="topbar-tab" href="/commission/">Commission</a>
+    <a class="topbar-tab is-current" href="/available-works/" aria-current="page">Available Works</a>
   </span>
 </div>
 
@@ -752,7 +754,7 @@ dialog#viewer::backdrop { background: rgba(255,255,255,0.92); }
 <footer>
   <div class="footer-left">&copy; maansi jain 2026</div>
   <div class="footer-links">
-    <a href="/workshops/">Workshops</a>
+    <a href="/workshops/">Experiences</a>
     <a href="/commission/">Commission</a>
     <a href="/cv">CV</a>
     <a href="/available-works/">Available Works</a>

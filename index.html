@@ -155,6 +155,46 @@ line-height: 2;
 flex-shrink: 0;
 }
 
+/* ── EXPERIENCES BAND ── */
+.experience {
+border-bottom: 1px solid #111;
+padding: 48px 40px 52px;
+display: grid;
+grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+gap: 40px;
+align-items: end;
+}
+
+.experience-title {
+font-size: clamp(28px, 3.5vw, 44px);
+font-weight: 700;
+text-transform: uppercase;
+letter-spacing: -0.02em;
+line-height: 1;
+}
+
+.experience-tagline {
+font-size: 11px;
+font-weight: 700;
+letter-spacing: 0.18em;
+text-transform: uppercase;
+color: #111;
+margin-top: 20px;
+}
+
+.experience-body {
+display: flex;
+flex-direction: column;
+gap: 28px;
+}
+
+.experience-desc {
+font-size: 13px;
+line-height: 1.7;
+color: #444;
+max-width: 420px;
+}
+
 .grid {
 display: grid;
 grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -188,6 +228,9 @@ line-height: 1;
 margin-bottom: 20px;
 }
 
+.col-title--asis { text-transform: none; }
+.experience-title span { color: #e8321a; }
+
 .col-desc {
 font-size: 13px;
 line-height: 1.7;
@@ -211,8 +254,6 @@ transition: background 0.15s ease;
 }
 
 .col-btn:hover { background: #e8321a; }
-.col:first-child .col-btn { background: #e8321a; }
-.col:first-child .col-btn:hover { background: #c52a14; }
 
 .col-btn--ghost {
 display: inline-block;
@@ -391,6 +432,7 @@ transition: color 0.15s;
 .topbar-place { display: none; }
 .hero { padding: 50px 20px 44px; flex-direction: column; gap: 24px; }
 .hero-sub { text-align: left; }
+.experience { grid-template-columns: 1fr; gap: 24px; padding: 36px 20px; align-items: start; }
 .grid { grid-template-columns: 1fr; }
 .col { border-right: none; border-bottom: 1px solid #111; padding: 36px 20px; }
 .col:last-child { border-bottom: none; }
@@ -410,6 +452,7 @@ footer { padding: 18px 20px; flex-direction: column; gap: 12px; align-items: fle
   <span class="topbar-right">
     <span class="topbar-place">Conceptual Artist — Berlin / Delhi / NYC / Paris</span>
     <a class="topbar-tab" href="/commission/">Commission</a>
+    <a class="topbar-tab" href="/available-works/">Available Works</a>
   </span>
 </div>
 
@@ -425,6 +468,20 @@ footer { padding: 18px 20px; flex-direction: column; gap: 12px; align-items: fle
   </div>
 </div>
 
+<section class="experience" aria-label="Experience conceptual art">
+  <div>
+    <h2 class="experience-title">Experience<br><span>Conceptual Art</span></h2>
+    <p class="experience-tagline">Draw, translate, rearrange, perform.</p>
+  </div>
+  <div class="experience-body">
+    <p class="experience-desc">
+      Ever travelled somewhere and wished you could just hang out with the artists?
+      Come in, make things, play, and be an artist for an afternoon. Hosted by STUDIO JAIN in Berlin.
+    </p>
+    <a class="col-btn" href="/workshops/">Explore experiences &rarr;</a>
+  </div>
+</section>
+
 <div class="grid">
 
   <div class="col">
@@ -438,22 +495,21 @@ footer { padding: 18px 20px; flex-direction: column; gap: 12px; align-items: fle
 
   <div class="col">
     <div class="col-num">01</div>
-    <div class="col-title">Subscribe<br>Free</div>
-    <p class="col-desc">
-      Studio letters. New work, upcoming shows, what's being made.
-      Free forever. The inside track before anyone else.
-    </p>
-    <a class="col-btn" style="background:#e8321a;" href="https://slurrrrrrp.substack.com/" target="_blank" rel="noopener">Subscribe &rarr;</a>
-  </div>
-
-  <div class="col">
-    <div class="col-num">02</div>
     <div class="col-title">Collect a<br>Poem</div>
     <p class="col-desc">
       Oil pastel drawings, moon poems, lavender, nyc dispatches.
       Digital download. Small objects from real life.
     </p>
     <a class="col-btn" href="https://slurrrrrrrp.gumroad.com/" target="_blank" rel="noopener">Get one &rarr;</a>
+  </div>
+
+  <div class="col">
+    <div class="col-num">02</div>
+    <div class="col-title col-title--asis">spEEch_2_<br>tExT.rar</div>
+    <p class="col-desc">
+      Studio letters by maansi jain. New work, shows, what's being made. Free.
+    </p>
+    <a class="col-btn" href="https://slurrrrrrp.substack.com/" target="_blank" rel="noopener" aria-label="Subscribe to spEEch_2_tExT.rar on Substack">Unzip &rarr;</a>
   </div>
 
 </div>
@@ -568,7 +624,7 @@ footer { padding: 18px 20px; flex-direction: column; gap: 12px; align-items: fle
 <footer>
   <div class="footer-left">&copy; maansi jain 2026</div>
   <div class="footer-links">
-    <a href="/workshops/">Workshops</a>
+    <a href="/workshops/">Experiences</a>
     <a href="/commission/">Commission</a>
     <a href="/cv">CV</a>
     <a href="/available-works/">Available Works</a>
