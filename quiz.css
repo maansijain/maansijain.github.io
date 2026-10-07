@@ -131,7 +131,7 @@ a { color: inherit; text-decoration: none; }
   transition: background 0.15s;
 }
 
-.btn-start:hover { background: #c52a14; }
+.btn-start:hover { background: #111; }
 
 .landing-image-strip {
   display: grid;

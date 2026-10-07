@@ -42,6 +42,7 @@ const root = path.resolve(__dirname, '..');
   assert.equal(commands.filter(x=>x[0]==='event' && x[1]==='page_view').length,1);
   assert(!JSON.stringify(commands).includes('private=test'));
   assert.equal(await page.locator('script[src*="googletagmanager"]').count(),1);
+  assert((await page.locator('script[src*="googletagmanager"]').getAttribute('src')).endsWith('G-5XNQZ1897M'));
   // Cancel navigation after the production listener has recorded the actual DOM click.
   await page.evaluate(() => document.addEventListener('click',e=>{if(e.target.closest('a'))e.preventDefault()}));
   for (const [product,slug] of [['1464155','draw-otherwise'],['1466996','words-become-art'],['1469918','make-the-ordinary-strange'],['1469937','perform-the-image']]) {
@@ -52,12 +53,29 @@ const root = path.resolve(__dirname, '..');
   await page.locator('.hero .button').click();
   commands = await events();
   assert.equal(commands.at(-1)[2].link_placement,'hero');
+  await page.evaluate(() => {
+   for (const href of ['/cv.html?secret=hidden#hidden', '#main', 'mailto:private@example.com?body=secret', 'tel:+49123456789', 'https://example.com/path?token=hidden']) {
+    const a=document.createElement('a');a.href=href;document.body.append(a);a.click();a.remove();
+   }
+   const button=document.createElement('button');button.dataset.analyticsId='gallery-open';document.body.append(button);button.click();button.remove();
+  });
+  commands = await events();
+  const links=commands.filter(x=>x[1]==='site_link_click').slice(-5);
+  assert.deepEqual(links.map(x=>x[2].link_kind),['internal','anchor','email','phone','external']);
+  assert(!JSON.stringify(commands).includes('private@example.com'));
+  assert(!JSON.stringify(commands).includes('49123456789'));
+  assert(!JSON.stringify(commands).includes('secret=hidden'));
+  assert(!JSON.stringify(commands).includes('token=hidden'));
+  assert.equal(commands.at(-1)[2].control_id,'gallery-open');
+  await page.evaluate(()=>window.scrollTo(0,document.documentElement.scrollHeight));
+  await page.waitForFunction(()=>dataLayer.some(x=>x[1]==='site_scroll_depth'));
+  assert.equal((await events()).filter(x=>x[1]==='site_scroll_depth').length,4);
   await page.locator('#mj-privacy-settings').click();
   await page.screenshot({path:'/tmp/analytics-mobile.png'});
   assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
   await page.evaluate(()=>document.cookie='_ga=sample;path=/');
   await page.locator('[data-choice="denied"]').click();
-  assert.equal(await page.evaluate(()=>window['ga-disable-G-76FFL9MYB9']),true);
+  assert.equal(await page.evaluate(()=>window['ga-disable-G-5XNQZ1897M']),true);
   assert.equal(await page.evaluate(()=>document.cookie.includes('_ga=')),false);
   const count = (await events()).filter(x=>x[1]==='workshop_booking_click').length;
   await page.locator('.hero .button').click();

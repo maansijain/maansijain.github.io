@@ -1,8 +1,8 @@
 /* Site analytics: Google is contacted only after affirmative consent. */
 (() => {
   'use strict';
-  const id = 'G-76FFL9MYB9';
-  const key = 'mj-analytics-consent-v1';
+  const id = 'G-5XNQZ1897M';
+  const key = 'mj-analytics-consent-v2';
   const lifetime = 180 * 86400000;
   const workshops = {
     '1464155': 'draw-otherwise',
@@ -60,7 +60,7 @@
   const panel = document.createElement('section');
   panel.id = 'mj-consent';
   panel.setAttribute('aria-label', 'Analytics preferences');
-  panel.innerHTML = '<strong>Website analytics</strong><p>May we use Google Analytics cookies to understand visits and clicks on workshop booking links? Google processes browsing and device information. Advertising features are disabled. Your choice is remembered for six months. You can change it at any time.</p><p><a href="/analytics-privacy.html">Analytics privacy details</a></p><div><button type="button" data-choice="denied">Decline analytics</button><button type="button" data-choice="granted">Allow analytics</button><button type="button" data-close hidden>Close</button></div>';
+  panel.innerHTML = '<strong>Website analytics</strong><p>May we use Google Analytics cookies to understand page visits, link clicks and interactions with this site? Google processes browsing and device information. Advertising features are disabled. Your choice is remembered for six months. You can change it at any time.</p><p><a href="/analytics-privacy.html">Analytics privacy details</a></p><div><button type="button" data-choice="denied">Decline analytics</button><button type="button" data-choice="granted">Allow analytics</button><button type="button" data-close hidden>Close</button></div>';
   const settings = document.createElement('button');
   settings.type = 'button';
   settings.id = 'mj-privacy-settings';
@@ -104,17 +104,32 @@
     try { saved = JSON.parse(event.newValue); } catch (_) {}
     choose(saved && saved.value === 'granted' && Date.now() - saved.time < lifetime ? 'granted' : 'denied', false);
   });
-  function bookingClick(event) {
+  function emit(name, params) {
+    if (consent !== 'granted') return;
+    tag('event', name, { ...params, page_location: location.origin + location.pathname, transport_type: 'beacon' });
+  }
+  function linkClick(event) {
     if (consent !== 'granted' || (event.type === 'auxclick' && event.button !== 1)) return;
+    if (!(event.target instanceof Element)) return;
     const link = event.target.closest('a[href]');
     if (!link) return;
-    const url = new URL(link.href, location.href);
+    let url;
+    try { url = new URL(link.href, location.href); } catch (_) { return; }
+    if (!['http:', 'https:', 'mailto:', 'tel:'].includes(url.protocol)) return;
+    const placement = link.closest('.gallery') ? 'gallery' : link.closest('.hero') ? 'hero' : link.closest('footer') ? 'footer' : link.closest('nav') ? 'navigation' : 'content';
+    const kind = url.protocol === 'mailto:' ? 'email' : url.protocol === 'tel:' ? 'phone' : url.origin !== location.origin ? 'external' : url.pathname === location.pathname && url.hash ? 'anchor' : 'internal';
+    // Never send email addresses, phone numbers, query values or fragment values.
+    emit('site_link_click', {
+      link_kind: kind,
+      link_destination: ['email', 'phone'].includes(kind) ? url.protocol : url.origin + url.pathname,
+      link_placement: placement,
+      link_id: link.dataset.analyticsId || 'link-' + Array.from(document.querySelectorAll('a[href]')).indexOf(link)
+    });
     if (!/(^|\.)getyourguide\.com$/.test(url.hostname)) return;
     const match = url.pathname.match(/-t(\d+)(?:\/|$)/);
     const workshop = match && workshops[match[1]];
     if (!workshop) return;
-    const placement = link.closest('.gallery') ? 'gallery' : link.closest('.hero') ? 'hero' : link.closest('footer') ? 'footer' : 'content';
-    tag('event', 'workshop_booking_click', {
+    emit('workshop_booking_click', {
       workshop_slug: workshop,
       booking_provider: 'getyourguide',
       link_placement: placement,
@@ -123,6 +138,26 @@
     });
     // No preventDefault: normal, keyboard, modified and new-tab clicks retain their behaviour.
   }
-  document.addEventListener('click', bookingClick);
-  document.addEventListener('auxclick', bookingClick);
+  document.addEventListener('click', linkClick);
+  document.addEventListener('auxclick', linkClick);
+  document.addEventListener('click', event => {
+    if (!(event.target instanceof Element)) return;
+    const button = event.target.closest('button');
+    if (!button || button.closest('#mj-consent') || button === settings) return;
+    // Identify controls, never inspect input values or quiz answers.
+    emit('site_button_click', { control_id: button.dataset.analyticsId || button.id || 'button-' + Array.from(document.querySelectorAll('button')).indexOf(button) });
+  });
+  const depths = new Set();
+  window.addEventListener('scroll', () => {
+    if (consent !== 'granted') return;
+    const height = document.documentElement.scrollHeight - innerHeight;
+    if (height <= 0) return;
+    const percent = 100 * scrollY / height;
+    [25, 50, 75, 90].forEach(depth => {
+      if (percent >= depth && !depths.has(depth)) {
+        depths.add(depth);
+        emit('site_scroll_depth', { percent_scrolled: depth });
+      }
+    });
+  }, { passive: true });
 })();
