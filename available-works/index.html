@@ -64,6 +64,8 @@ dialog#viewer::backdrop { background: rgba(255,255,255,0.92); }
 .v-img.thumb-only { min-height: 260px; }
 .v-text { padding: 48px 32px 32px; display: flex; flex-direction: column; }
 .v-title { font-size: 18px; line-height: 1.35; }
+.v-series { margin-top: 16px; font-size: 12px; line-height: 1.7; color: #333; }
+.v-series strong { display: block; font-weight: 700; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 4px; color: #111; }
 .v-meta { margin-top: 12px; font-size: 12px; line-height: 1.7; color: #666; }
 .v-price { margin: 18px 0 22px; font-size: 15px; font-weight: 700; letter-spacing: 0.04em; }
 .v-eds { list-style: none; margin: 18px 0 8px; padding: 0; border-top: 1px solid #ddd; }
@@ -797,6 +799,7 @@ dialog#viewer::backdrop { background: rgba(255,255,255,0.92); }
     <div class="v-text">
       <p class="v-title" id="v-title"></p>
       <p class="v-meta" id="v-meta"></p>
+      <p class="v-series" id="v-series" style="display:none"><strong>warp mafia</strong>an ongoing series begun in 2017. analog photographs are warped by hand, a liquify in photoshop that gives 35mm film a painterly quality, and some are reshaped into sculptural, dimensional forms. the distortion is a conceptual lens. it shows the absurd and surreal in what a congealed society normalizes. it echoes the way ai and neural networks drift toward disfiguration. and it is a reminder that documentary photography always carries the perspective of whoever made it. the warp becomes a watermark of human pause: a painterly gesture where error turns into perfection. light is treated as particle and wave at once, everything is made of vibrating atoms, and time, space and light act across many planes rather than sitting flat in a single image.</p>
       <p class="v-price" id="v-price"></p>
       <ul class="v-eds" id="v-eds" style="display:none"></ul>
       <a class="col-btn" id="v-collect" href="#">Collect &rarr;</a>
@@ -814,6 +817,7 @@ dialog#viewer::backdrop { background: rgba(255,255,255,0.92); }
     img.className=w.full?'is-full':'is-thumb'; img.parentNode.classList.toggle('thumb-only',!w.full);
     document.getElementById('v-title').innerHTML='<em>'+esc(w.t)+'</em>, '+esc(w.y);
     var ed=document.getElementById('v-eds'), btn=document.getElementById('v-collect');
+    document.getElementById('v-series').style.display=w.sizes?'block':'none';
     if(w.sizes){
       document.getElementById('v-meta').innerHTML=esc(w.m)+'<br>Limited edition with signed certificate';
       document.getElementById('v-price').textContent='';
