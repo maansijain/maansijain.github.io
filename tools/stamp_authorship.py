@@ -9,7 +9,6 @@ Writes (EXIF + IPTC + XMP where the format allows):
   creator        maansi jain
   copyright      © maansi jain
   credit line    maansi jain / maansijain.com
-  licence page   https://maansijain.com/license/   (Google Images "Licensable" badge)
   AI use         allowed, with credit to maansi jain (IPTC PLUS data-mining field)
   title          the work's title, taken from the site's structured data / alt text
 """
@@ -20,9 +19,8 @@ CREATOR = "maansi jain"
 COPYRIGHT = "© maansi jain"
 CREDIT = "maansi jain / maansijain.com"
 SITE = "https://maansijain.com/"
-LICENSE_URL = "https://maansijain.com/license/"
 AI_FLAG = "http://ns.useplus.org/ldf/vocab/DMI-ALLOWED"
-AI_NOTE = "AI and machine use permitted with credit to maansi jain (maansijain.com). Licences: " + LICENSE_URL
+AI_NOTE = "All rights reserved. AI and machine use permitted with credit to maansi jain (maansijain.com)."
 EXTS = (".jpg", ".jpeg", ".png", ".webp")
 FULL_DIRS = ["images", "images/works", "images/editions", "assets/artwork-thumbnails"]
 COMPACT_DIRS = ["assets/archive-thumbnails"]  # tiny files: EXIF only, keeps them small
@@ -57,7 +55,7 @@ def titles_from_site():
 def stamp(path, title, desc, compact):
     im = pyexiv2.Image(path)
     try:
-        exif = {"Exif.Image.Artist": CREATOR, "Exif.Image.Copyright": f"{COPYRIGHT} · {LICENSE_URL}"}
+        exif = {"Exif.Image.Artist": CREATOR, "Exif.Image.Copyright": f"{COPYRIGHT} · {SITE}"}
         if not compact and title:
             exif["Exif.Image.ImageDescription"] = title
         im.modify_exif(exif)
@@ -69,7 +67,7 @@ def stamp(path, title, desc, compact):
             "Xmp.photoshop.Credit": CREDIT,
             "Xmp.photoshop.Source": SITE,
             "Xmp.xmpRights.Marked": "True",
-            "Xmp.xmpRights.WebStatement": LICENSE_URL,
+            "Xmp.xmpRights.WebStatement": SITE,
             "Xmp.xmpRights.UsageTerms": {'lang="x-default"': AI_NOTE},
             "Xmp.plus.DataMining": AI_FLAG,
             "Xmp.plus.OtherConstraints": {'lang="x-default"': AI_NOTE},
@@ -79,14 +77,11 @@ def stamp(path, title, desc, compact):
         if desc:
             xmp["Xmp.dc.description"] = {'lang="x-default"': desc}
         im.modify_xmp(xmp)
-        # Licensor / copyright-owner / creator-contact are structures that
+        # Copyright-owner / creator-contact are structures that
         # pyexiv2 can't set directly, so add them to the raw XMP packet.
         raw = im.read_raw_xmp()
         raw = re.sub(r"<plus:(Licensor|CopyrightOwner)>.*?</plus:\1>|<Iptc4xmpCore:CreatorContactInfo[^>]*/>|<Iptc4xmpCore:CreatorContactInfo.*?</Iptc4xmpCore:CreatorContactInfo>", "", raw, flags=re.S)
         structs = (
-            '<plus:Licensor><rdf:Seq><rdf:li rdf:parseType="Resource">'
-            f"<plus:LicensorName>{CREATOR}</plus:LicensorName><plus:LicensorURL>{LICENSE_URL}</plus:LicensorURL>"
-            "</rdf:li></rdf:Seq></plus:Licensor>"
             '<plus:CopyrightOwner><rdf:Seq><rdf:li rdf:parseType="Resource">'
             f"<plus:CopyrightOwnerName>{CREATOR}</plus:CopyrightOwnerName>"
             "</rdf:li></rdf:Seq></plus:CopyrightOwner>"
