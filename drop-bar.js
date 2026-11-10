@@ -15,14 +15,27 @@
 
   var css = '.drop-bar{display:block;background:#111;color:#fff !important;text-align:center;' +
     "font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:11px;line-height:1.5;" +
-    'letter-spacing:.1em;text-transform:uppercase;padding:9px 20px;text-decoration:none !important;border:0;margin:0}' +
-    '.drop-bar span{border-bottom:1px solid #fff;padding-bottom:1px;font-weight:700;margin-left:6px}' +
-    '.drop-bar:hover{background:#e8321a}';
+    'letter-spacing:.1em;text-transform:uppercase;padding:9px 16px;text-decoration:none !important;border:0;margin:0;box-sizing:border-box}' +
+    '.drop-bar .db-cta{white-space:nowrap}' +
+    '.drop-bar u{text-decoration:none;border-bottom:1px solid #fff;padding-bottom:1px;font-weight:700}' +
+    '.drop-bar.db-bleed{position:absolute;top:0;left:0;right:0;z-index:1}' +
+    '@media (hover:hover){.drop-bar:hover{background:#e8321a}}' +
+    '@media (max-width:360px){.drop-bar{font-size:10px;letter-spacing:.06em;padding:9px 10px}}';
   var style = document.createElement('style');
   style.textContent = css;
   document.head.appendChild(style);
 
   document.body.insertAdjacentHTML('afterbegin',
     '<a class="drop-bar" href="' + href + '"' + (live ? '' : ' target="_blank" rel="noopener"') + '>' +
-    text + ' &middot;<span>' + cta + '</span></a>');
+    text + ' <span class="db-cta">&middot; <u>' + cta + '</u></span></a>');
+
+  // If a page boxes its content into a narrow column, lift the bar out so it runs edge to edge.
+  var bar = document.body.firstElementChild, root = document.documentElement;
+  var r = bar.getBoundingClientRect();
+  if (r.left > 0 || r.top > 0 || r.width < root.clientWidth) {
+    bar.className += ' db-bleed';
+    var pad = function () { root.style.paddingTop = bar.offsetHeight + 'px'; };
+    pad();
+    window.addEventListener('resize', pad);
+  }
 })();
