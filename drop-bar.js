@@ -8,10 +8,10 @@
   var END = Date.UTC(2026, 10, 30, 23, 0);     // 1 Dec 00:00 Berlin
   if (now >= END || !document.body) return;
 
-  var live = now >= LAUNCH;
-  var href = live ? '/available-works/#editions' : 'https://tally.so/r/vXr5Pv';
-  var text = live ? 'warp mafia is out now' : 'warp mafia drops friday nov 27';
-  var cta = live ? 'collect &rarr;' : 'remind me &rarr;';
+  var live = true;
+  var href = '/warpmafia/';
+  var text = 'warp mafia is live now';
+  var cta = 'collect &rarr;';
 
   var css = '.drop-bar{display:block;background:#111;color:#fff !important;text-align:center;' +
     "font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:11px;line-height:1.5;" +
